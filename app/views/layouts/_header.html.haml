@@ -1,0 +1,12 @@
+%header.navbar.navbar-inverse
+  .container
+    = link_to "Horeca Stappegoor", root_url, id: "logo"
+    %nav
+      %ul.nav.navbar-nav.navbar-right
+        %li= nav_link "Home",            root_url
+        %li= nav_link "Menu",            '#'
+        %li= nav_link "Evenementen",     '#'
+        %li= nav_link "Kinderfeesten",   '#'
+        %li= nav_link "Groepskortingen", '#'
+        %li= nav_link "Lunches",         '#'
+        %li= nav_link "Contact",         contact_url
