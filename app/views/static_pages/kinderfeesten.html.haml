@@ -2,3 +2,56 @@
 
 .container
   %h1 Kinderfeesten
+
+  %p
+    Wil je met deze prijzen een aanvraag doen voor een kinderfeestje?
+    Vul hier je email in en binnen twee dagen nemen we contact met je op.
+  %form.form-horizontal
+    .form-group
+      %label.col-xs-2.control-label Email
+      .col-xs-10
+        %input.form-control#inputEmail{placeholder: "Email", type: "email"}
+    .form-group
+      .col-xs-offset-2.col-xs-10
+        %button.btn.btn-primary{type: "button", 'data-target': '#confirmSubmission', 'data-toggle': "modal"} Verstuur aanvraag
+
+  / The modal for confirmation
+  .modal.fade#confirmSubmission
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{type: "button", 'data-dismiss': "modal", 'aria-hidden': "true"} &times;
+          %h4.modal-title Bevestiging
+        .modal-body
+          Wil je deze aanvraag versturen?
+          <br>
+
+          .form-horizontal
+            .form-group
+              %label.col-xs-4 Email
+              .col-xs-8
+                HeyDitIsEenEmail@Gmail.com
+            .form-group
+              %label.col-xs-4 Omschrijving
+              .col-xs-8
+                Kinderfeestje met zwemmen en taart.
+            .form-group
+              %label.col-xs-4 Aantal personen
+              .col-xs-8
+                32 personen
+            .form-group
+              %label.col-xs-4 Totaalprijs
+              .col-xs-8
+                &euro;427.84
+            .form-group
+              %label.col-xs-4 Datum
+              .col-xs-8
+                29 Februari 2016
+            .form-group
+              %label.col-xs-4 Extra opmerkingen
+              .col-xs-8
+                Glutenvrij
+        .modal-footer
+          %button.btn.btn-primary{type: "submit", 'data-dismiss': "modal"} Verstuur aanvraag
+          %button.btn.btn-default{type: "button", 'data-dismiss': "modal"} Annuleer
+  %p Ben je meer van de telefoon? Je kan ook een afspraak maken door te bellen op ons telefoonnummer: 013-58112684.
