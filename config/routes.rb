@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'stappegoor' => redirect("/")
 
+  get 'kinderfeesten' => 'static_pages#kinderfeesten'
+
   get 'contact' => 'static_pages#contact'
 
   # The priority is based upon order of creation: first created -> highest priority.

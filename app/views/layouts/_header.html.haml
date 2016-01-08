@@ -1,12 +1,24 @@
-%header.navbar.navbar-inverse
-  .container
-    = link_to "Horeca Stappegoor", root_url, id: "logo"
-    %nav
-      %ul.nav.navbar-nav.navbar-right
-        %li= nav_link "Home",            root_url
-        %li= nav_link "Menu",            '#'
-        %li= nav_link "Evenementen",     '#'
-        %li= nav_link "Kinderfeesten",   '#'
-        %li= nav_link "Groepskortingen", '#'
-        %li= nav_link "Lunches",         '#'
-        %li= nav_link "Contact",         contact_url
+%header
+  %nav.navbar.navbar-inverse{role: "navigation"}
+    .container
+      / Brand and toggle are grouped together for better mobile display.
+      .navbar-header
+        %button.navbar-toggle{'data-target': "#navbarCollapse",
+                              'data-toggle': "collapse",
+                              type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to "Horeca Stappegoor", root_url, id: "logo", class: "navbar-brand"
+
+      / Collection of nav links
+      .collapse.navbar-collapse#navbarCollapse
+        %ul.nav.navbar-nav.navbar-right
+          = nav_link "Home",            root_url
+          = nav_link "Menu",            '#'
+          = nav_link "Evenementen",     '#'
+          = nav_link "Kinderfeesten",   kinderfeesten_url
+          = nav_link "Groepskortingen", '#'
+          = nav_link "Lunches",         '#'
+          = nav_link "Contact",         contact_url
