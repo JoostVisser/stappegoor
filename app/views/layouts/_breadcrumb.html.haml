@@ -1,0 +1,5 @@
+- if ! current_page? root_url
+  .container-fluid#breadcrumb-background
+    .container
+      %ul.breadcrumb#breadcrumb-nopadding
+        = render_breadcrumbs tag: :li, separator: ""

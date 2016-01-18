@@ -1,0 +1,26 @@
+/* header */
+
+.navbar {
+  margin: 0px;
+  font-family: 'Roboto', 'Lato', 'Source Sans Pro', Arial, sans-serif;
+  background-color: black;
+  border-radius: 0px;
+  text-transform: lowercase;
+  .nav {
+    font-size: 18px;
+    .active a {
+      background-color: black;
+    }
+  }
+}
+
+#logo {
+  font-size: 1.7em;
+  color: white;
+  text-transform: lowercase;
+  font-weight: bold;
+  &:hover {
+  color: white;
+  text-decoration: none;
+  }
+}

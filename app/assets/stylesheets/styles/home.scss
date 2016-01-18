@@ -1,0 +1,62 @@
+/* Home page styling */
+
+.jumbotron {
+  background-image: image-url("home-background-2.jpeg");
+  height: 40em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-bottom: 0px;
+  position: relative;
+
+  .center {
+   text-align: center;
+   h1 {
+     margin-bottom: 10px;
+   }
+  }
+  .extra-gradient {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 20em;
+    background: transparent linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2), transparent) repeat scroll 0% 0%;
+  }
+
+  .container {
+    position: relative;
+    top: 10em;
+    color: white;
+  }
+
+  h1 {
+    font-size: 3em;
+    letter-spacing: -2px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    text-align: center;
+    font-weight: normal;
+    color: #ededed;
+    margin-bottom: 10px;
+  }
+
+}
+
+.main-contents {
+  padding: 20px 0px;;
+  background-color: $waterblue;
+  font-family: 'Open Sans', sans-serif;
+  h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+.extra-information {
+  padding: 20px 0px;
+}

@@ -5,7 +5,9 @@
 
   %p
     Wil je met deze prijzen een aanvraag doen voor een kinderfeestje?
-    Vul hier je email in en binnen twee dagen nemen we contact met je op.
+
+    Kies je pakket:
+    Verstuur een aanvraag en we nemen binnen twee dagen contact met je op.
   %form.form-horizontal
     .form-group
       %label.col-xs-2.control-label Email
@@ -20,12 +22,10 @@
     .modal-dialog
       .modal-content
         .modal-header
-          %button.close{type: "button", 'data-dismiss': "modal", 'aria-hidden': "true"} &times;
+          %button.close{type: "button", 'data-dismiss': "modal", 'aria-hidden': "true"} x
           %h4.modal-title Bevestiging
         .modal-body
           Wil je deze aanvraag versturen?
-          <br>
-
           .form-horizontal
             .form-group
               %label.col-xs-4 Email
