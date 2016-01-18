@@ -6,13 +6,12 @@
                                            "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
+    <%= render 'layouts/meta' %>
     <%= render 'layouts/shim' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%#= render 'layouts/breadcrumb' %>
+    <%= render 'layouts/breadcrumb' %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
