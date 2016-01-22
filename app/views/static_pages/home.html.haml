@@ -5,32 +5,27 @@
       %h2
         Hier vind je alle informatie over het boeken van feesten op zwembad Stappegoor.
 
-.main-contents
+%section.main-contents.white-text
   .container
     .row
       .col-sm-4
         %h3 Kinderfeesten
-        %hr
         %p
           Wil je een leuk feestje in het zwembad regelen voor veel kinderen? Dan kan dat voordelig met onze speciale kinderfeest pakketten.
-        %p
-          = link_to "Meer Informatie",  kinderfeesten_url
+        = link_to "Meer Informatie",  kinderfeesten_url, class: "open-button"
       .col-sm-4
         %h3 Groepskortingen
-        %hr
         %p
           Bespaar een hoop geld door samen te gaan. Er zijn speciale kortingen voor groepen van 10 of meer personen.
-        %p
-          = link_to "Meer Informatie",  '#'
+        = link_to "Meer Informatie",  '#', class: "open-button"
       .col-sm-4
         %h3 Lunches
-        %hr
         %p
           Gezellig samen een lunch hebben kan met een op maakt gemaakte lunch arrangement.
-        %p
-          = link_to "Meer Informatie",  '#'
+        = link_to "Meer Informatie",  '#', class: "open-button"
 
-.extra-information
+/ Todo: add page-jump / scrolling to here
+%section.extra-information
   .container
     .row
       .col-sm-6

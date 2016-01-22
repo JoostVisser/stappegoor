@@ -3,24 +3,24 @@
 .navbar {
   margin: 0px;
   font-family: 'Roboto', 'Lato', 'Source Sans Pro', Arial, sans-serif;
-  background-color: black;
+  background-color: $broken-black;
   border-radius: 0px;
   text-transform: lowercase;
   .nav {
     font-size: 18px;
     .active a {
-      background-color: black;
+      background-color: $broken-black;
     }
   }
 }
 
 #logo {
   font-size: 1.7em;
-  color: white;
+  color: $broken-white;
   text-transform: lowercase;
   font-weight: bold;
   &:hover {
-  color: white;
+  color: $broken-white;
   text-decoration: none;
   }
 }

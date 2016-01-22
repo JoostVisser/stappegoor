@@ -6,6 +6,10 @@ textarea {
   resize: vertical;
 }
 
+html {
+  background-color: $broken-black;
+}
+
 body {
   font-family: 'Open Sans', 'Roboto', Helvetica Neue, Arial, sans-serif;
 }
@@ -17,7 +21,43 @@ hr {
 }
 
 .top-header{
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $broken-black;
+}
+
+.page-content {
+  background-color: $broken-white;
+  min-height: calc(100vh - 148px);
+}
+
+/* Special open button */
+.open-button {
+  display: inline-block;
+  border: 2px solid $broken-white;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:visited {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.white-text {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* typography */

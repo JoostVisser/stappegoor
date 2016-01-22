@@ -1,6 +1,5 @@
-
 .maps {
-  margin-top: 2em;
+  margin-bottom: 2em;
   position: relative;
   padding-bottom: 75%;
   height: 0;
@@ -15,6 +14,20 @@
   }
 }
 
-#blue-background {
-  background-color: $waterblue;
+.contact-info {
+  /* Only show border for non-phone screens */
+  @media only screen and (min-width : 768px) {
+    border-left: 1px solid $broken-black;
+  }
+  .address {
+    padding-bottom: 20px;
+  }
+
+  .opening-hours {
+    padding-bottom: 10px;
+    /* Extra padding for mobile view */
+    @media only screen and (max-width : 767px) {
+      padding-bottom: 20px;
+    }
+  }
 }
