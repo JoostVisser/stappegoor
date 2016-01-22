@@ -14,12 +14,6 @@ body {
   font-family: 'Open Sans', 'Roboto', Helvetica Neue, Arial, sans-serif;
 }
 
-hr {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-}
-
 .top-header{
   margin-top: 20px;
   margin-bottom: 30px;
@@ -35,13 +29,14 @@ hr {
 /* Special open button */
 .open-button {
   display: inline-block;
-  border: 2px solid $broken-white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 10px 20px;
   color: white;
   font-weight: bold;
 
   &:hover {
     color: white;
+    border: 2px solid white;
     text-decoration: none;
   }
 
@@ -52,6 +47,7 @@ hr {
 
   &:active {
     color: white;
+    border: 2px solid white;
     text-decoration: none;
   }
 }
