@@ -19,6 +19,13 @@
           = nav_link "Menu",            '#'
           = nav_link "Evenementen",     '#'
           = nav_link "Kinderfeesten",   kinderfeesten_url
+          -# %li.dropdown
+            %a.dropdown-toggle{'data-toggle': "dropdown", 'data-trigger': "hover", href: '#'}
+              Feesten
+              %b.caret
+            %ul.dropdown-menu{role: "menu" }
+              = nav_link "Kinderfeesten", kinderfeesten_url
+              = nav_link "Duikfeesten",   '#'
           = nav_link "Groepskortingen", '#'
           = nav_link "Lunches",         '#'
           = nav_link "Contact",         contact_url

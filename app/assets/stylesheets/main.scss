@@ -1,3 +1,6 @@
+/* Import global variables */
+@import "base/globals.scss";
+
 /* Import bootstrap */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -5,8 +8,7 @@
 /* Import font types */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700);
 
-/* Import global variables and styling */
-@import "base/globals.scss";
+/* Import global styling applicable to all pages */
 @import "base/global_styling.scss";
 
 /* Import main styling of pages */

@@ -111,3 +111,10 @@
     }
   }
 }
+
+@media all and (max-width: 1199px) {
+  .jumbotron {
+    background-size: auto;
+    background-attachment: scroll;
+  }
+}

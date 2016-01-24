@@ -10,6 +10,10 @@
   padding-bottom: 5px;
   .nav {
     font-size: 18px;
+    a {
+      padding-left: 2vh;
+      padding-right: 2vh;
+    }
     .active a {
       background-color: $broken-black;
     }
