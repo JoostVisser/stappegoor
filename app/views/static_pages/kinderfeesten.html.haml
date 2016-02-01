@@ -17,9 +17,8 @@
     = succeed "." do
       %a{href: "mailto:info@horecatilburg.nl"} info@horecatilburg.nl
 
-  %button.btn.btn-primary.btn-lg{type: "button"} Download
-
-  = link_to 'Download', download_doc_path
+  %a{href: download_doc_path}
+    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"} Download formulier
 
   %p
     Daarna wordt er contact met je opgenomen.
