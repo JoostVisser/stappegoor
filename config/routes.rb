@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  root 'static_pages#kinderfeesten'
 
   get 'stappegoor' => redirect("/")
-
-  get 'kinderfeesten' => 'static_pages#kinderfeesten'
-
-  get 'contact' => 'static_pages#contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
