@@ -1,60 +1,36 @@
-= provide(:title, "Kinderfeesten")
-
-.container
-  .top-header
-    %h1 Kinderfeesten
-
-
 %section.container
+  .temp-title
+    %h1 Binnenkort komt er een gloednieuwe website!
+  .row
+    .col-sm-10
+      %p Wij zijn nu hard bezig met het verbouwen van de website.
+      %p
+        Terwijl wij bezig zijn, is deze site niet te gebruiken.
+        In de tussentijd zetten wij hier alvast wat handige informatie op voor Recreatiebad Stappegoor.
+    .col-sm-2
+      %img{src: "https://upload.wikimedia.org/wikipedia/commons/c/c7/UnderConstruction.svg", alt: "Under Construction"}
+
+  %h2 Kinderfeestje
   %p
-    Wil je met deze prijzen een aanvraag doen voor een kinderfeestje?
+    Wil je een kinderfeestje boeken? Druk dan op de knop hieronder om het formulier te downloaden.
+    Stuur dit formulier op naar
+    = succeed "." do
+      %a{href: "mailto:info@horecatilburg.nl"} info@horecatilburg.nl
 
-    Kies je pakket:
-    Verstuur een aanvraag en we nemen binnen twee dagen contact met je op.
-  %form.form-horizontal
-    .form-group
-      %label.col-xs-2.control-label Email
-      .col-xs-10
-        %input.form-control#inputEmail{placeholder: "Email", type: "email"}
-    .form-group
-      .col-xs-offset-2.col-xs-10
-        %button.btn.btn-primary{type: "button", 'data-target': '#confirmSubmission', 'data-toggle': "modal"} Verstuur aanvraag
+  %button.btn.btn-primary.btn-lg{type: "button"} Download
 
-  / The modal for confirmation
-  .modal.fade#confirmSubmission
-    .modal-dialog
-      .modal-content
-        .modal-header
-          %button.close{type: "button", 'data-dismiss': "modal", 'aria-hidden': "true"} x
-          %h4.modal-title Bevestiging
-        .modal-body
-          Wil je deze aanvraag versturen?
-          .form-horizontal
-            .form-group
-              %label.col-xs-4 Email
-              .col-xs-8
-                HeyDitIsEenEmail@Gmail.com
-            .form-group
-              %label.col-xs-4 Omschrijving
-              .col-xs-8
-                Kinderfeestje met zwemmen en taart.
-            .form-group
-              %label.col-xs-4 Aantal personen
-              .col-xs-8
-                32 personen
-            .form-group
-              %label.col-xs-4 Totaalprijs
-              .col-xs-8
-                &euro;427.84
-            .form-group
-              %label.col-xs-4 Datum
-              .col-xs-8
-                29 Februari 2016
-            .form-group
-              %label.col-xs-4 Extra opmerkingen
-              .col-xs-8
-                Glutenvrij
-        .modal-footer
-          %button.btn.btn-primary{type: "submit", 'data-dismiss': "modal"} Verstuur aanvraag
-          %button.btn.btn-default{type: "button", 'data-dismiss': "modal"} Annuleer
-  %p Ben je meer van de telefoon? Je kan ook een afspraak maken door te bellen op ons telefoonnummer: 013-58112684.
+  %p
+    Daarna wordt er contact met je opgenomen.
+    Ook kan je via de telefoon boeken: 013-5811684.
+
+  %h2 Contact
+  .contact-info-temp
+    Recreatiebad Stappegoor
+    %br
+    Stappegoorweg 1
+    %br
+    5022 DA Tilburg
+    %br
+    013-5811684
+    %br
+    %a{href: "mailto:info@horecatilburg.nl"} info@horecatilburg.nl
