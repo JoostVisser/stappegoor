@@ -18,3 +18,7 @@
 
 # Ignore passenger files
 /passenger.*
+
+# Ignore secret key
+config/secrets.yml
+
