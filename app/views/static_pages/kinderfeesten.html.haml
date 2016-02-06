@@ -16,9 +16,18 @@
     Stuur dit formulier op naar
     = succeed "." do
       %a{href: "mailto:info@horecatilburg.nl"} info@horecatilburg.nl
+    Als je meer informatie over alle soorten kinderfeestjes wilt hebben, dan kan je de folder downloaden.
+
 
   %a{href: download_doc_path}
-    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"} Download formulier
+    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"} Formulier
+      %span.glyphicon.glyphicon-download-alt.glyphicon-align-right
+
+  %a{href: download_pdf_path}
+    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"} Folder
+      %span.glyphicon.glyphicon-download-alt.glyphicon-align-right
+
+
 
   %p
     Daarna wordt er contact met je opgenomen.

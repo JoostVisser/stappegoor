@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'download/doc'
 
+  get 'download/pdf'
+
   root 'static_pages#kinderfeesten'
 
   get 'stappegoor' => redirect("/")
