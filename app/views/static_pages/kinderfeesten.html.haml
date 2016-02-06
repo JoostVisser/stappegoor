@@ -16,19 +16,21 @@
     Stuur dit formulier op naar
     = succeed "." do
       %a{href: "mailto:info@horecatilburg.nl"} info@horecatilburg.nl
-    Als je meer informatie over alle soorten kinderfeestjes wilt hebben, dan kan je de folder downloaden.
+    Voor meer informatie over alle kinderfeestjes, zie de informatie folder.
 
 
   %a{href: download_doc_path}
-    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"} Formulier
-      %span.glyphicon.glyphicon-download-alt.glyphicon-align-right
+    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"}
+      Formulier
+      %span.glyphicon.glyphicon-download-alt{'aria-hidden': "true"}
+      %span.sr-only Download
 
   %a{href: download_pdf_path}
-    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"} Folder
-      %span.glyphicon.glyphicon-download-alt.glyphicon-align-right
-
-
-
+    %button.btn.btn-primary.btn-lg#extra-temp-margin{type: "button"}
+      Informatie folder
+      %span.glyphicon.glyphicon-download-alt{'aria-hidden': "true"}
+      %span.sr-only Download
+      
   %p
     Daarna wordt er contact met je opgenomen.
     Ook kan je via de telefoon boeken: 013-5811684.
