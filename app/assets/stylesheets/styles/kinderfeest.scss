@@ -1,5 +1,19 @@
 /* Kinderfeest page styling */
 
+.kinderfeest-select .col-sm-4 .inner{
+  border: 1px dashed rgba(0, 0, 0, 0.7);
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  h4 {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+}
+
+
+
 .modal .form-horizontal {
   margin-top: 15px;
 }

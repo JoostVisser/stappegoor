@@ -6,10 +6,46 @@
 
 
 %section.container
+
+  %p Kies je pakket:
+
+  .row.kinderfeest-select
+    .col-sm-4
+      .inner
+        %h3 Standaard Kinderfeestje
+        %h4 &euro;9,95 pp
+        %p
+
+        %p
+          Of kies een van de twee volgende modules:
+          %br
+          Alleen taart en drinken -2,50
+          %br
+          Zonder zwemmen -4,50
+
+        .radio.radio-center
+          %label
+            %input{type: "radio", name: "kinderfeest-type"}
+
+    .col-sm-4
+      .inner
+        %h3 Luxe Kinderfeestje
+        %h4 &euro;12,75 pp
+        .radio.radio-center
+          %label
+            %input{type: "radio", name: "kinderfeest-type"}
+
+    .col-sm-4
+      .inner
+        %h3 Film en Zwemfeestje
+        %h4 &euro;16,95 pp
+        .radio.radio-center
+          %label
+            %input{type: "radio", name: "kinderfeest-type"}
+
   %p
     Wil je met deze prijzen een aanvraag doen voor een kinderfeestje?
 
-    Kies je pakket:
     Verstuur een aanvraag en we nemen binnen twee dagen contact met je op.
   %form.form-horizontal
     .form-group
@@ -57,4 +93,4 @@
         .modal-footer
           %button.btn.btn-primary{type: "submit", 'data-dismiss': "modal"} Verstuur aanvraag
           %button.btn.btn-default{type: "button", 'data-dismiss': "modal"} Annuleer
-  %p Ben je meer van de telefoon? Je kan ook een afspraak maken door te bellen op ons telefoonnummer: 013-58112684.
+  %p Ben je meer van de telefoon? Je kan ook een afspraak maken door te bellen op ons telefoonnummer: 013 58 11 674.

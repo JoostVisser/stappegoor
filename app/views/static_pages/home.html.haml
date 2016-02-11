@@ -1,8 +1,8 @@
 .jumbotron.center
   .banner-container
     .banner
-      %h1 Horeca Stappegoor
-      %h2 Zin in een leuk dagje uit? Kom gezellig eten en zwemmen bij Stappegoor!
+      %h1 Horeca Recreatiebad Stappegoor
+      %h2 Zin in een leuke dag uit? Kom gezellig eten en zwemmen bij Stappegoor!
 
 %section.main-contents.white-text
   .container
@@ -11,17 +11,23 @@
         %h3 Kinderfeesten
         %p
           Wil je een leuk feestje in het zwembad regelen voor veel kinderen? Dan kan dat voordelig met onze speciale kinderfeest pakketten.
-        = link_to "Meer Informatie",  kinderfeesten_url, class: "open-button"
+        %a.solid-link{href: kinderfeesten_url}
+          Meer informatie
+          %span.glyphicon.glyphicon-chevron-right
       .col-sm-4
         %h3 Groepskortingen
         %p
           Bespaar een hoop geld door samen te gaan. Er zijn speciale kortingen voor groepen van 10 of meer personen.
-        = link_to "Meer Informatie",  '#', class: "open-button"
+        %a.solid-link{href: '#'}
+          Meer informatie
+          %span.glyphicon.glyphicon-chevron-right
       .col-sm-4
         %h3 Lunches
         %p
           Gezellig samen een lunch hebben kan met een op maakt gemaakte lunch arrangement.
-        = link_to "Meer Informatie",  '#', class: "open-button"
+        %a.solid-link{href: '#'}
+          Meer informatie
+          %span.glyphicon.glyphicon-chevron-right
 
 / Todo: add page-jump / scrolling to here
 %section.extra-information

@@ -10,6 +10,7 @@
 
 /* Import global styling applicable to all pages */
 @import "base/global_styling.scss";
+@import "base/global_utilities.scss";
 
 /* Import main styling of pages */
 @import "styles/header.scss";

@@ -1,0 +1,28 @@
+/* Special open button */
+.solid-link {
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 14.5px;
+
+  &:hover, &:visited, &:active, &:focus {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.radio-center {
+  text-align: center;
+  label {
+    cursor: auto;
+    padding-left: 0;
+    margin-bottom: auto;
+    input[type="radio"] {
+      position: relative;
+      margin-left: 0;
+    }
+
+  }
+}
