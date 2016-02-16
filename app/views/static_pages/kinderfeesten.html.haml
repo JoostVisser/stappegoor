@@ -7,45 +7,127 @@
 
 %section.container
 
-  %p Kies je pakket:
-
   .row.kinderfeest-select
     .col-sm-4
       .inner
-        %h3 Standaard Kinderfeestje
-        %h4 &euro;9,95 pp
-        %p
+        %h3 Standaard Zwemfeestje
+        %h4.subtitle &euro; 9,95 p.p.
 
-        %p
-          Of kies een van de twee volgende modules:
-          %br
-          Alleen taart en drinken -2,50
-          %br
-          Zonder zwemmen -4,50
+        %ul.items
+          %li
+            %i.fa.fa-check
+            Entree Zwembad
+          %li
+            %i.fa.fa-check
+            Frietjes met saus
+          %li
+            %i.fa.fa-check
+            Snack
+            %i.fa.fa-info-circle.info-snack
+          %li
+            %i.fa.fa-check
+            Drankje
+            %i.fa.fa-info-circle.info-drink
+          %li
+            %i.fa.fa-check
+            IJsje
+          %li
+            %i.fa.fa-check
+            Jarige: snoepzak
+
+        .checkbox
+          %input#checkbox-pie{type: "checkbox"}
+          %label{for: 'checkbox-pie'}
+            Goedkopere taart arrangement.
+            %i.fa.fa-info-circle
 
         .radio.radio-center
-          %label
-            %input{type: "radio", name: "kinderfeest-type", value: 1}
+          %input#radio-standard{type: "radio", name: "kinderfeest-type", value: 1}
+          %label{for: 'radio-standard'}
 
     .col-sm-4
       .inner
-        %h3 Luxe Kinderfeestje
-        %h4 &euro;12,75 pp
+        %h3 Luxe Zwemfeestje
+        %h4.subtitle &euro; 12,75 p.p.
+
+        %ul.items
+          %li
+            %i.fa.fa-check
+            Entree Zwembad
+          %li
+            %i.fa.fa-check
+            Frietjes met saus
+          %li
+            %i.fa.fa-check
+            Snack
+            %i.fa.fa-info-circle.info-snack
+          %li
+            %i.fa.fa-check
+            Drankje
+            %i.fa.fa-info-circle.info-drink
+          %li
+            %i.fa.fa-check
+            IJsje
+          %li
+            %i.fa.fa-check
+            Jarige: snoepzak
+          %li.special
+            %i.fa.fa-check
+            Slagroomtaart met extra drankje
+
+        .checkbox
         .radio.radio-center
-          %label
-            %input{type: "radio", name: "kinderfeest-type", value: 2}
+          %input#radio-lux{type: "radio", name: "kinderfeest-type", value: 2}
+          %label{for: 'radio-lux'}
 
     .col-sm-4
       .inner
         %h3 Film en Zwemfeestje
-        %h4 &euro;16,95 pp
+        %h4.subtitle &euro; 16,95 p.p.
+
+        %ul.items
+          %li
+            %i.fa.fa-check
+            Entree Zwembad
+          %li
+            %i.fa.fa-check
+            Frietjes met saus
+          %li
+            %i.fa.fa-check
+            Snack
+            %i.fa.fa-info-circle.info-snack
+          %li
+            %i.fa.fa-check
+            Drankje
+            %i.fa.fa-info-circle.info-drink
+          %li
+            %i.fa.fa-check
+            IJsje
+          %li
+            %i.fa.fa-check
+            Jarige: snoepzak
+          %li.special
+            %i.fa.fa-check
+            Bioscoopkaartje voor Euroscoop
+
+        .checkbox
+          %input#checkbox-3D{type: "checkbox"}
+          %label{for: 'checkbox-3D'}
+            Extra 3D bril. &euro; 1,- p.p.
+
         .radio.radio-center
-          %label
-            %input{type: "radio", name: "kinderfeest-type", value: 3}
+          %input#radio-movie{type: "radio", name: "kinderfeest-type", value: 3}
+          %label{for: 'radio-movie'}
 
   %p
     Wil je met deze prijzen een aanvraag doen voor een kinderfeestje?
 
+  .checkbox
+    %input#checkbox-camera{type: "checkbox"}
+    %label{for: 'checkbox-camera'}
+      Onderwatercamera voor 15 minutes. + &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
+
+  %p
     Verstuur een aanvraag en we nemen binnen twee dagen contact met je op.
   %form.form-horizontal
     .form-group
@@ -55,6 +137,14 @@
     .form-group
       .col-xs-offset-2.col-xs-10
         %button.btn.btn-primary{type: "button", 'data-target': '#confirmSubmission', 'data-toggle': "modal"} Verstuur aanvraag
+
+      -# Still need to check where to put this. Maybe a discount corner at the bottom of the case.
+        .checkbox
+          %input#checkbox-no-swim{type: "checkbox"}
+          %label{for: 'checkbox-no-swim'}
+            Zonder zwemmen &euro; 4,50
+
+
 
   / The modal for confirmation
   .modal.fade#confirmSubmission

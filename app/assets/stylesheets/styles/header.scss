@@ -37,7 +37,9 @@
 
 /* Header title under the header */
 .top-header{
-  margin-top: 20px;
+  h1 {
+    margin-top: 10px;
+  }
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-bottom: 1px solid $broken-black;
@@ -62,5 +64,20 @@
     @media all and (max-width: 1199px) {
 
     }
+  }
+}
+
+@media all and (max-width: 1199px) {
+  .navbar .nav {
+    margin-top: 0;
+    background-color: $broken-black;
+  }
+
+  .navbar-inverse .navbar-toggle {
+    background-color: transparent;
+    &:active, &:hover, &:focus, &:visited {
+      background-color: transparent;
+    }
+    border: none;
   }
 }

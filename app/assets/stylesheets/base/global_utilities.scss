@@ -15,14 +15,9 @@
 
 .radio-center {
   text-align: center;
-  label {
-    cursor: auto;
-    padding-left: 0;
-    margin-bottom: auto;
-    input[type="radio"] {
-      position: relative;
-      margin-left: 0;
-    }
+}
 
-  }
+.fa-info-circle {
+  color: #1C588E;
+  margin-left: 2px;
 }

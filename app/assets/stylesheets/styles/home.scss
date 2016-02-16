@@ -70,7 +70,7 @@
 .main-contents {
   padding-top: 40px;
   padding-bottom: 45px;
-  background-color: $waterblue;
+  background-color: $grassgreen;
 
   h3 {
     font-size: 1.5em;
@@ -94,8 +94,9 @@
 }
 
 @media all and (max-width: 767px){
+  /* Update Jumbotron size for smaller devices */
   .jumbotron {
-    height: 300px;
+    height: 450px;
     .banner-container .banner {
         h1 {
         font-size: 2.2em;
@@ -105,6 +106,8 @@
       }
     }
   }
+
+  /* Extra padding since all main content is now full width */
 
   .main-contents, .extra-information {
     padding-top: 10px;
@@ -122,5 +125,6 @@
 @media all and (max-width: 1199px) {
   .jumbotron {
     background-size: auto;
+    background-attachment: scroll
   }
 }

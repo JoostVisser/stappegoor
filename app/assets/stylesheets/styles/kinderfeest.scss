@@ -1,15 +1,41 @@
 /* Kinderfeest page styling */
 
-.kinderfeest-select .col-sm-4 .inner{
-  border: 1px dashed rgba(0, 0, 0, 0.7);
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  h4 {
-    color: rgba(0, 0, 0, 0.5);
-  }
+.kinderfeest-select{
+  .inner{
+    border: 1px solid transparent;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    background-color: rgba(105,180,204,0.3);
 
+    h3 {
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .items {
+      list-style-type: none;
+      background-color: white;
+      margin: 15px -16px;
+      padding: 10px 20px;
+      line-height: 2.5;
+      font-size: 16px;
+      .fa-check {
+        margin-right: 10px;
+      }
+      .special .fa-check {
+          color: $grassgreen;
+      }
+      .popover {
+        font-size: 14px;
+        line-height: normal;
+      }
+    }
+  }
 }
 
 

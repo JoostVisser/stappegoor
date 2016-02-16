@@ -8,6 +8,12 @@
 
 .breadcrumb {
   background-color: transparent;
+  li {
+    color: rgba(0, 0, 0, 0.8);
+    a {
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
 }
 
 #breadcrumb-nopadding {
