@@ -8,7 +8,8 @@
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 10px;
-    background-color: rgba(105,180,204,0.3);
+    background-color: rgba(36,113,179,0.2);
+    cursor: pointer;
 
     h3 {
       line-height: 1.25;
@@ -27,9 +28,9 @@
       .fa-check {
         margin-right: 10px;
       }
-      .special .fa-check {
+      /*.special .fa-check {
           color: $grassgreen;
-      }
+      }*/
       .popover {
         font-size: 14px;
         line-height: normal;

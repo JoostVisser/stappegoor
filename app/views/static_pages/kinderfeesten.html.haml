@@ -6,7 +6,6 @@
 
 
 %section.container
-
   .row.kinderfeest-select
     .col-sm-4
       .inner
@@ -73,7 +72,10 @@
             Jarige: snoepzak
           %li.special
             %i.fa.fa-check
-            Slagroomtaart met extra drankje
+            Slagroomtaart
+          %li.special
+            %i.fa.fa-check
+            Extra drankje
 
         .checkbox
         .radio.radio-center
@@ -119,32 +121,29 @@
           %input#radio-movie{type: "radio", name: "kinderfeest-type", value: 3}
           %label{for: 'radio-movie'}
 
-  %p
-    Wil je met deze prijzen een aanvraag doen voor een kinderfeestje?
-
-  .checkbox
-    %input#checkbox-camera{type: "checkbox"}
-    %label{for: 'checkbox-camera'}
-      Onderwatercamera voor 15 minutes. + &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
-
-  %p
-    Verstuur een aanvraag en we nemen binnen twee dagen contact met je op.
-  %form.form-horizontal
+  %h3 Aanvraag
+  %form#form-main{'data-toggle': "validator", role: "form"}
     .form-group
-      %label.col-xs-2.control-label Email
-      .col-xs-10
-        %input.form-control#inputEmail{placeholder: "Email", type: "email"}
+      %label.control-label{for: "inputEmail"} Email
+      %input.form-control#inputEmail{ type: "email",
+                                      placeholder: "Email",
+                                      'data-error':"Email adres is incorrect",
+                                      required: ""}
+      .help-block.with-errors
     .form-group
-      .col-xs-offset-2.col-xs-10
-        %button.btn.btn-primary{type: "button", 'data-target': '#confirmSubmission', 'data-toggle': "modal"} Verstuur aanvraag
+      %label.control-label{for: "inputExtra"} Extra opmerkingen
+      %input.form-control#inputExtra{ type: "text",
+                                      placeholder: "Extra opmerkingen",
+                                      'max-length': 150,
+                                      'data-error': "Maximaal 150 tekens"}
+      .help-block.with-errors
+    .form-group.checkbox
+      %input#checkbox-camera{type: "checkbox"}
+      %label{for: 'checkbox-camera'}
+        Onderwatercamera voor 15 minuten. + &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
 
-      -# Still need to check where to put this. Maybe a discount corner at the bottom of the case.
-        .checkbox
-          %input#checkbox-no-swim{type: "checkbox"}
-          %label{for: 'checkbox-no-swim'}
-            Zonder zwemmen &euro; 4,50
-
-
+    .form-group
+      %button.btn.btn-primary{type: "submit"} Verstuur aanvraag
 
   / The modal for confirmation
   .modal.fade#confirmSubmission
