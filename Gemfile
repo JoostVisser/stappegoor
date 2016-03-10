@@ -10,6 +10,9 @@ gem 'bootstrap-sass',       '3.2.0.0'
 # Use pre-made breadcrumb
 gem 'breadcrumbs_on_rails'
 
+# Datepicker of form submission
+gem 'bootstrap-datepicker-rails'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
