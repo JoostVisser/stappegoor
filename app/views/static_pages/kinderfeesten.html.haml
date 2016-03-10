@@ -127,15 +127,45 @@
       %label.control-label{for: "inputEmail"} Email
       %input.form-control#inputEmail{ type: "email",
                                       placeholder: "Email",
+                                      pattern: '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$',
                                       'data-error':"Email adres is incorrect",
                                       required: ""}
       .help-block.with-errors
     .form-group
+      %label.control-label{for: "inputDate"} Datum
+      %input.form-control.datepicker#inputDate{ type: "text",
+                                                placeholder: "Datum",
+                                                'data-error': "Vul de datum in",
+                                                onfocus: "blur();",
+                                                required: ""}
+      .help-block.with-errors
+    .form-group
+      %label.control-label{for: "inputAdult"} Aantal volwassenen
+      %input.form-control#inputAdult{ type: "number",
+                                      placeholder: "'2'",
+                                      min: "1",
+                                      max: "99",
+                                      'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 1 en 99 zitten.",
+                                      required: ""}
+      -# %select.form-control#inputAdult
+        = option_generator 1, 20
+
+
+      .help-block.with-errors
+    .form-group
+      %label.control-label{for: "inputAdult"} Aantal kinderen (tot 18 jaar)
+      %input.form-control#inputAdult{ type: "number",
+                                      placeholder: "'20'",
+                                      min: "0",
+                                      max: "99",
+                                      'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 0 en 99 zitten.",
+                                      required: ""}
+    .form-group
       %label.control-label{for: "inputExtra"} Extra opmerkingen
       %input.form-control#inputExtra{ type: "text",
                                       placeholder: "Extra opmerkingen",
-                                      'max-length': 150,
-                                      'data-error': "Maximaal 150 tekens"}
+                                      pattern: '^.{0,150}$',
+                                      'data-error': "Maximaal 150 karakters"}
       .help-block.with-errors
     .form-group.checkbox
       %input#checkbox-camera{type: "checkbox"}

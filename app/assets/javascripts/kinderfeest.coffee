@@ -37,6 +37,14 @@ App.Kinderfeest =
         App.Kinderfeest.openModal()
       return
 
+  initializeDatePicker: ->
+    # Options of the datepicker.
+    $('.datepicker').datepicker({
+      language: 'nl',
+      format: "d MM yyyy",
+      autoclose: true
+    });
+
   openModal: ->
     console.log("Opens Modal")
     return
@@ -95,7 +103,7 @@ $(document).on "page:change", ->
   # Temporary bugfix where resize does weird on particular load situation
   setTimeout(App.Kinderfeest.resizeDivs, 100) if $(window).width() >= 753
 
-  #App.Kinderfeest.formEnterAction()
+  App.Kinderfeest.initializeDatePicker()
 
   $('#main-form').validator().on 'submit', (e) ->
     if ! e.isDefaultPrevented()

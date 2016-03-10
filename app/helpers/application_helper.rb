@@ -29,4 +29,17 @@ module ApplicationHelper
       link_to link_text, link_path
     end
   end
+
+  # Creates a list of options from the start_number upto the end number.
+  def option_generator(start_number, end_number)
+    # First option.
+    content = content_tag(:option, start_number)
+
+    # Second up to last option.
+    (start_number + 1).upto(end_number) do |x|
+      content << content_tag(:option, x)
+    end
+
+    content
+  end
 end
