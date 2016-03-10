@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-datepicker
 //= require components/validator
 //= require turbolinks
 //= require init
