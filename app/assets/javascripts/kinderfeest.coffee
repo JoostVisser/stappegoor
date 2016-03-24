@@ -39,11 +39,23 @@ App.Kinderfeest =
 
   initializeDatePicker: ->
     # Options of the datepicker.
-    $('.datepicker').datepicker({
+    $datepicker = $('#form-main .datepicker')
+    $datepicker.datepicker({
       language: 'nl',
-      format: "d MM yyyy",
-      autoclose: true
+      format: "dd-mm-yyyy",
+      autoclose: true,
+      disableTouchKeyboard: true,
+      startDate: '0d'
     });
+
+
+  initializeTimePicker: ->
+    # Options for the timepicker
+    $('#form-main #inputTime').timepicker({
+      defaultTime: "12:45",
+      showMeridian: false,
+      template: 'modal'
+    })
 
   openModal: ->
     console.log("Opens Modal")
@@ -58,13 +70,13 @@ App.Kinderfeest =
   updateStyle: ($selectedDiv) ->
     # Update all borders to dashed
     $(".kinderfeest-select .inner")
-      .css "background-color", App.Colours.darkBlue(0.2)
+      .css "background-color", App.Colours.darkBlue(0.15)
 
     $(".kinderfeest-select .inner .items")
       .css "background-color", 'rgba(255, 255, 255, 0.9)'
     # Update the chosen one to solid
     $selectedDiv
-      .css "background-color", App.Colours.darkBlue(0.5)
+      .css "background-color", App.Colours.darkBlue(0.65)
     $(".items", $selectedDiv)
       .css "background-color", 'rgba(255, 255, 255, 1)'
     return
@@ -105,7 +117,7 @@ $(document).on "page:change", ->
 
   App.Kinderfeest.initializeDatePicker()
 
-  $('#main-form').validator().on 'submit', (e) ->
+  $('#form-main').validator().on 'submit', (e) ->
     if ! e.isDefaultPrevented()
       e.preventDefault()
       $("#confirmSubmission").modal('show');

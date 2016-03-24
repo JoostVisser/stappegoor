@@ -134,10 +134,20 @@
     .form-group
       %label.control-label{for: "inputDate"} Datum
       %input.form-control.datepicker#inputDate{ type: "text",
-                                                placeholder: "Datum",
+                                                placeholder: "dd-mm-jjjj",
                                                 'data-error': "Vul de datum in",
-                                                onfocus: "blur();",
                                                 required: ""}
+      .help-block.with-errors
+    -# .form-group
+      %label.control-label{for: "inputTime"} Voorkeur Etenstijd
+      .input-append.bootstrap-timepicker-component{style: "display: inline;"}
+        %input.dateselect-time.form-control.input-small#inputTime{  type: "text",
+                                        placeholder: "'12:45'",
+                                        'data-error': "Vul de tijd in",
+                                        onfocus: "blur();",
+                                        required: ""}
+        %span.add-on
+          %i.icon-time
       .help-block.with-errors
     .form-group
       %label.control-label{for: "inputAdult"} Aantal volwassenen
@@ -147,19 +157,16 @@
                                       max: "99",
                                       'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 1 en 99 zitten.",
                                       required: ""}
-      -# %select.form-control#inputAdult
-        = option_generator 1, 20
-
-
       .help-block.with-errors
     .form-group
       %label.control-label{for: "inputAdult"} Aantal kinderen (tot 18 jaar)
       %input.form-control#inputAdult{ type: "number",
-                                      placeholder: "'20'",
+                                      placeholder: "'7'",
                                       min: "0",
                                       max: "99",
                                       'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 0 en 99 zitten.",
                                       required: ""}
+      .help-block.with-errors
     .form-group
       %label.control-label{for: "inputExtra"} Extra opmerkingen
       %input.form-control#inputExtra{ type: "text",
