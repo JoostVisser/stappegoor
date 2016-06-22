@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   # Link to the website with the text.
-  # Adds an active class if current page is linked page.
+  # Adds an active class if current page is active page.
   def nav_link(link_text, link_path)
     class_name = current_page?(link_path) ? 'active' : nil
 
