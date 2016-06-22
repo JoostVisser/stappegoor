@@ -10,6 +10,7 @@
     padding-bottom: 10px;
     background-color: rgba(36,113,179,0.2);
     cursor: pointer;
+    margin-bottom: 20px;
 
     h3 {
       line-height: 1.25;
@@ -36,25 +37,61 @@
         line-height: normal;
       }
     }
-  }
-}
 
-#form-main {
-  #inputAdult, #inputChildren {
-    width: 50px;
-    text-align: center;
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+    .radio input {
+      height: 0;
+      width: 0;
     }
   }
-  /* Padding fix */
-  .datepicker {
-    padding: 6px 12px;
-  }
 }
 
+.form-and-summary {
+  background-color: white;
+
+  // The form
+  #form-main {
+    #inputAdults, #inputChildren {
+      width: 50px;
+      text-align: center;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+    }
+    /* Padding fix */
+    .datepicker {
+      padding: 6px 12px;
+    }
+  }
+
+  // The summary
+  .summary-view {
+    border-radius: 4px;
+
+    table {
+      width: 100%;
+      font-size: 16px;
+
+      tr:nth-last-child(2) {
+        border-bottom: 1px solid $broken-black;
+      }
+
+      td:nth-child(3), th:nth-child(3) {
+        text-align: right;
+      }
+      th, td {
+        padding: 4px 1px;
+      }
+    }
+  }
+
+  // The final button
+  .final-button {
+   text-align: center;
+   padding: 20px 0px;
+  }
+}
 
 
 .modal .form-horizontal {
