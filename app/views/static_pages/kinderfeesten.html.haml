@@ -131,7 +131,7 @@
           %label.control-label{for: "inputEmail"} Email
           %input.form-control#inputEmail{ type: "email",
                                           placeholder: "Email",
-                                          pattern: '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$',
+                                          pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
                                           'data-error':"Email adres is incorrect",
                                           required: ""}
           .help-block.with-errors
@@ -183,24 +183,24 @@
         .form-group.checkbox
           %input#checkbox-camera{type: "checkbox"}
           %label{for: 'checkbox-camera'}
-            Onderwatercamera voor 15 minuten. + &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
+            Onderwatercamera voor 15 minuten. &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
 
       .summary-view.col-sm-6
         %h3 Overzicht
         %table
-          %tr
+          -# %tr
             %th Omschrijving
             %th Aantal
             %th Totaal Prijs
-          %tr
+          -# %tr
             %td Volwassenen
             %td 2
             %td &euro; 30
-          %tr
+          -# %tr
             %td Kinderen
             %td 0
             %td &euro; 0
-          %tr
+          -# %tr
             %td{style: "font-weight: bold"}Totaal
             %td
             %td &euro; 100

@@ -5,7 +5,7 @@ App.Kinderfeest = class Kinderfeest
   # Variable that keeps track whether the height of divs has been set to auto
   autoSize: false
 
-  # --- Private methods ---
+  ### Private methods ###
   # Makes the divs the same height
   divSameHeight = ($divTarget) ->
     bestHeight = 0
@@ -49,6 +49,8 @@ App.Kinderfeest = class Kinderfeest
         12.75
       when "film"
         16.95
+  getCurrentPacketPrice = ->
+    return getPacketPrice(getPacketOption())
 
   getNumberOfPeople = ->
     numberOfPeople = parseInt($('#inputAdults').val()) + parseInt($("#inputChildren").val())
@@ -58,7 +60,18 @@ App.Kinderfeest = class Kinderfeest
       numberOfPeople;
 
   getTotalPrice = ->
-    (getPacketPrice(getPacketOption()) * getNumberOfPeople()).toFixed(2);
+    totalPrice = 0.0
+    
+    # Adding the price for the tickets
+    totalPrice += getCurrentPacketPrice() * getNumberOfPeople()
+    
+    # Add the price for the camera if available
+    totalPrice += 9.95 if $('#checkbox-camera').is(':checked')
+
+    # Add price for optional 3D glasses
+    totalPrice += getNumberOfPeople() if $('#checkbox-3D').is(':checked') && getPacketOption() == "film"
+
+    return totalPrice.toFixed(2)
 
   updateRadio = ($radio) ->
     $(".kinderfeest-select .inner .radio .input")
@@ -80,11 +93,27 @@ App.Kinderfeest = class Kinderfeest
       .css "background-color", 'rgba(255, 255, 255, 1)'
     return
 
-  updatePrize = ->
-    console.log getPacketOption()
+  updateTablePrice = ->
+    priceTable.updatePrice "Volwassenen", getCurrentPacketPrice()
+    priceTable.updatePrice "Kinderen", getCurrentPacketPrice()
     return
 
+  ### Initializers ###
+
   # Initializes the date picker of the form
+  initializeCheckbox = ->
+    $('#checkbox-3D').click ->
+      if $(this).is ':checked'
+        priceTable.addArticle "3D bril", getNumberOfPeople(), 1.00
+      else 
+        priceTable.removeArticle "3D bril"
+
+    $('#checkbox-camera').click ->
+      if $(this).is ':checked'
+        priceTable.addArticle "Onderwater Camera", 1, 9.95
+      else
+        priceTable.removeArticle "Onderwater Camera"
+
   initializeDatePicker = ->
     # Options of the datepicker.
     $datepicker = $('#form-main .datepicker')
@@ -95,6 +124,33 @@ App.Kinderfeest = class Kinderfeest
       disableTouchKeyboard: true,
       startDate: '0d'
     });
+
+  initializeForm = ->
+    initializeDatePicker()
+    initializeTimePicker()
+    return
+
+  initializePeopleCount = ->
+    $('#inputAdults').change -> 
+      priceTable.updateAmount "Volwassenen", $(this).val()
+      priceTable.updateAmount "3D bril", getNumberOfPeople()
+
+    $('#inputChildren').change ->
+      priceTable.updateAmount "Kinderen", $(this).val()
+      priceTable.updateAmount "3D bril", getNumberOfPeople()
+  
+  # Initializes the popovers.
+  initializePopovers = ->
+    $(".info-snack").popover
+      trigger: 'hover'
+      content: 'Keuze uit: frikankel, kroket, kaassoufflé, ...'
+      placement: 'right'
+
+    $(".info-drink").popover
+      trigger: 'hover'
+      content: 'Keuze uit: Cola, Fanta, ...'
+      placement: 'right'
+    return
 
   # Initializes the time picker of the form
   initializeTimePicker = ->
@@ -115,7 +171,10 @@ App.Kinderfeest = class Kinderfeest
 
     updateRadio $myRadio
     updateStyle $selectedDiv
-    updatePrize
+    updateTablePrice()
+    if getPacketOption() == "film" && $('#checkbox-3D').is(':checked')
+      priceTable.addArticle("3D bril", getNumberOfPeople(), 1.00)
+    priceTable.removeArticle("3D bril") if getPacketOption() != "film"
 
   # Makes sure that the height of the divs of the three block are same height
   resizeDivs: ->
@@ -124,9 +183,24 @@ App.Kinderfeest = class Kinderfeest
     divSameHeight $(".kinderfeest-select .checkbox")
     return
 
-  initializeForm: ->
-    initializeDatePicker()
-    initializeTimePicker()
+  initialize: ->
+    # Initialize the popovers
+    initializePopovers()
+
+    # Initialize date and time picker for the form.
+    initializeForm()
+
+    # Initializes the checkbox
+    initializeCheckbox()
+
+    # Initializes the events that update the price on people change.
+    initializePeopleCount()
+
+    # Initialize the price boxes
+    $(".kinderfeest-select .inner").on 'click', ->
+      kinderPage.updateSelection $(this), $('.radio input', this)
+    
+    return
 
   # Fills in all modal info and opens it afterwards.
   openModal: ->
@@ -151,39 +225,142 @@ App.Kinderfeest = class Kinderfeest
     $(".kinderfeest-select .checkbox").height('auto')
     return
 
+App.Article = class Article
+  constructor: (@description, @amount, @pricePerPiece) ->
+    return
+  
+  # Get the description of the article
+  getDescription: ->
+    return @description
+  
+  # Get the amount of the article
+  getAmount: ->
+    return @amount
+
+  # Get the price of the article
+  getPrice: ->
+    return @pricePerPiece
+
+  # Updates the amount of the article
+  updateAmount: (amount) ->
+    @amount = amount
+    return
+
+  # Updates the price of the article
+  updatePrice: (pricePerPiece) ->
+    @pricePerPiece = pricePerPiece
+    return
+
+
+App.PriceTable = class PriceTable
+
+  # Summary of the part of the price.
+  # In the form of []
+  summaryTable: []
+
+  constructor: ->
+  
+  ### PUBLIC FUNCTIONS ###
+
+  # Adds an article to the table
+  addArticle: (description, amount, price) ->
+    newArticle = new Article(description, amount, price)
+    @summaryTable.push(newArticle) unless @inTable description
+    @updateTable()
+    return
+
+  # Removes an article from the table
+  removeArticle: (description) ->
+    @summaryTable.splice(i, 1) for article, i in @summaryTable when article.getDescription() is description
+    @updateTable()
+    return
+
+  inTable: (description) ->
+    return true for article in @summaryTable when article.getDescription() == description
+    return false
+
+  initializeTable: ->
+    # Empties the table
+    @summaryTable = []
+
+    # Adds the Volwassenen and Children articles to the table.
+    volwassenArticle = new Article("Volwassenen", 0, 9.95)
+    childrenArticle = new Article("Kinderen", 0, 9.95)
+
+    @summaryTable.push(volwassenArticle) unless @inTable "Volwassenen"
+    @summaryTable.push(childrenArticle) unless @inTable "Kinderen"
+
+    $('table').append "<tr>
+      <th>Omschrijving</th>
+      <th>Aantal</th>
+      <th>Totaal Prijs</th>
+      </tr>"
+    @updateTable()
+    return
+
+  # Updates the amount of the article in the table
+  # Updates the table afterwards
+  # NOTE: Maybe use .equals because of strings?
+  updateAmount: (artDescription, amount) ->
+    article.updateAmount(amount) for article in @summaryTable when article.getDescription() is artDescription
+    @updateTable()
+    return
+
+  updatePrice: (artDescription, price) ->
+    article.updatePrice(price) for article in @summaryTable when article.getDescription() is artDescription
+    @updateTable()
+    return
+
+  updateTable: ->
+    #Remove all but the first element of the table
+    $('table tr').slice(1).remove() 
+    
+    totalPrice = 0
+    # Adds the price of the current article to the total price and appends 
+    # it to the table.
+    for article in @summaryTable
+      do (article) ->
+        unless typeof article == 'undefined'
+          # Retrieve info from the article
+          articleDescription = article.getDescription()
+          articleAmount = article.getAmount()
+          articlePrice = article.getPrice()
+
+          totalArticlePrice = articleAmount * articlePrice
+          totalPrice += totalArticlePrice
+
+          $('table').append "<tr>
+            <td>#{articleDescription}</td>
+            <td>#{articleAmount}</td>
+            <td>&euro; #{totalArticlePrice.toFixed(2)}</td>
+            </tr>"
+
+    # Append total price
+    $('table').append "<tr>
+      <td>Totaal</td>
+      <td></td>
+      <td>&euro; #{totalPrice.toFixed(2)}</td>
+      </tr>"
+    return
 
 kinderPage = new Kinderfeest()
+priceTable = new PriceTable()
 
 $(document).on "page:change", ->
-# The functions executed on page load.
-
-  $(".kinderfeest-select .inner").on 'click', ->
-    kinderPage.updateSelection $(this), $('.radio input', this)
-    return
+  kinderPage.initialize()
+  priceTable.initializeTable()
+  # The functions executed on page load.
 
   # Start with the standard kinderfeest selected
   $("#radio-standard").click()
-
-  $(".info-snack").popover
-    trigger: 'hover'
-    content: 'Keuze uit: frikankel, kroket, kaassoufflé, ...'
-    placement : 'top'
-
-  $(".info-drink").popover
-    trigger: 'hover'
-    content: 'Keuze uit: Cola, Fanta, ...'
-    placement : 'top'
 
   kinderPage.resizeDivs if $(window).width() >= 753
 
   # Temporary bugfix where resize does weird on particular load situation
   setTimeout(kinderPage.resizeDivs, 100) if $(window).width() >= 753
 
-  # Initialize date and time picker for the form.
-  kinderPage.initializeForm()
-
   $('#form-main').validator().on 'submit', (e) ->
-    if ! e.isDefaultPrevented()
+    unless e.isDefaultPrevented()
       e.preventDefault()
 
       kinderPage.openModal()

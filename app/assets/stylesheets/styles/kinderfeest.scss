@@ -73,11 +73,21 @@
       width: 100%;
       font-size: 16px;
 
+      tr:last-child {
+        font-weight: bold;
+      }
+
+      tr:first-child th:first-child {
+        width: 50%
+      }
+
+      // Border for total
       tr:nth-last-child(2) {
         border-bottom: 1px solid $broken-black;
       }
 
-      td:nth-child(3), th:nth-child(3) {
+      // Align last element to the right
+      td:last-child, th:last-child {
         text-align: right;
       }
       th, td {
