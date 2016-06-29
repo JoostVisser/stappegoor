@@ -1,0 +1,2 @@
+class FormMailer < ApplicationMailer
+end
