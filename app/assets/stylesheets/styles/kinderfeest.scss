@@ -29,9 +29,9 @@
       .fa-check {
         margin-right: 10px;
       }
-      /*.special .fa-check {
-          color: $grassgreen;
-      }*/
+      .special .fa-check {
+          color: $darkwater;
+      }
       .popover {
         font-size: 14px;
         line-height: normal;
@@ -67,8 +67,6 @@
 
   // The summary
   .summary-view {
-    border-radius: 4px;
-
     table {
       width: 100%;
       font-size: 16px;
@@ -94,12 +92,20 @@
         padding: 4px 1px;
       }
     }
+
+    .small-note {
+      color: rgba(0, 0, 0, 0.5);
+      padding-top: 6px;
+    }
   }
 
   // The final button
   .final-button {
-   text-align: center;
-   padding: 20px 0px;
+    text-align: center;
+    padding: 20px 0px;
+    button {
+      width: calc(100% - 30px);
+    }
   }
 }
 
