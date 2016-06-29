@@ -11,9 +11,9 @@ module ApplicationHelper
   end
 
   # Link to the website with the text.
-  # Adds an active class if current page is linked page.
+  # Adds an active class if current page is active page.
   def nav_link(link_text, link_path)
-    class_name = current_page?(link_path) ? 'active' : ''
+    class_name = current_page?(link_path) ? 'active' : nil
 
     content_tag(:li, class: class_name) do
       link_to link_text, link_path
@@ -23,10 +23,23 @@ module ApplicationHelper
   # Link to the website with the text.
   # Adds an active class if current page is linked page.
   def breadcrumb_link(link_text, link_path)
-    class_name = current_page?(link_path) ? 'active' : ''
+    class_name = current_page?(link_path) ? 'active' : nil
 
     content_tag(:li, class: class_name) do
       link_to link_text, link_path
     end
+  end
+
+  # Creates a list of options from the start_number upto the end number.
+  def option_generator(start_number, end_number)
+    # First option.
+    content = content_tag(:option, start_number)
+
+    # Second up to last option.
+    (start_number + 1).upto(end_number) do |x|
+      content << content_tag(:option, x)
+    end
+
+    content
   end
 end

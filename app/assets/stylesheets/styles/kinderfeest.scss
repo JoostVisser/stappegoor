@@ -1,5 +1,115 @@
 /* Kinderfeest page styling */
 
+.kinderfeest-select{
+  .inner{
+    border: 1px solid transparent;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    background-color: rgba(36,113,179,0.2);
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    h3 {
+      line-height: 1.25;
+    }
+    .subtitle {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .items {
+      list-style-type: none;
+      background-color: white;
+      margin: 15px -16px;
+      padding: 10px 20px;
+      line-height: 2.5;
+      font-size: 16px;
+      .fa-check {
+        margin-right: 10px;
+      }
+      .special .fa-check {
+          color: $darkwater;
+      }
+      .popover {
+        font-size: 14px;
+        line-height: normal;
+      }
+    }
+
+    .radio input {
+      height: 0;
+      width: 0;
+    }
+  }
+}
+
+.form-and-summary {
+  background-color: white;
+
+  // The form
+  #form-main {
+    #inputAdults, #inputChildren {
+      width: 50px;
+      text-align: center;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+    }
+    /* Padding fix */
+    .datepicker {
+      padding: 6px 12px;
+    }
+  }
+
+  // The summary
+  .summary-view {
+    table {
+      width: 100%;
+      font-size: 16px;
+
+      tr:last-child {
+        font-weight: bold;
+      }
+
+      tr:first-child th:first-child {
+        width: 50%
+      }
+
+      // Border for total
+      tr:nth-last-child(2) {
+        border-bottom: 1px solid $broken-black;
+      }
+
+      // Align last element to the right
+      td:last-child, th:last-child {
+        text-align: right;
+      }
+      th, td {
+        padding: 4px 1px;
+      }
+    }
+
+    .small-note {
+      color: rgba(0, 0, 0, 0.5);
+      padding-top: 6px;
+    }
+  }
+
+  // The final button
+  .final-button {
+    text-align: center;
+    padding: 20px 0px;
+    button {
+      width: calc(100% - 30px);
+    }
+  }
+}
+
+
 .modal .form-horizontal {
   margin-top: 15px;
 }

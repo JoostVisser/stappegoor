@@ -14,46 +14,14 @@ body {
   font-family: 'Open Sans', 'Roboto', Helvetica Neue, Arial, sans-serif;
 }
 
-.top-header{
-  margin-top: 20px;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid $broken-black;
-}
-
+/* Make sure that the footer is at the bottom of the page. */
 .page-content {
   background-color: $broken-white;
   min-height: calc(100vh - 204px);
 }
 
-/* Special open button */
-.open-button {
-  display: inline-block;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  padding: 10px 20px;
-  color: white;
-  font-weight: bold;
-
-  &:hover {
-    color: white;
-    border: 2px solid white;
-    text-decoration: none;
-  }
-
-  &:visited {
-    color: white;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: white;
-    border: 2px solid white;
-    text-decoration: none;
-  }
-}
-
 .white-text {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 1);
 }
 
 /* typography */

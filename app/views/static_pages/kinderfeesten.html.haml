@@ -6,19 +6,195 @@
 
 
 %section.container
-  %p
-    Wil je met deze prijzen een aanvraag doen voor een kinderfeestje?
+  .row.kinderfeest-select
+    .col-sm-4
+      .inner
+        %h3 Standaard Zwemfeestje
+        %h4.subtitle &euro; 9,95 p.p.
 
-    Kies je pakket:
-    Verstuur een aanvraag en we nemen binnen twee dagen contact met je op.
-  %form.form-horizontal
-    .form-group
-      %label.col-xs-2.control-label Email
-      .col-xs-10
-        %input.form-control#inputEmail{placeholder: "Email", type: "email"}
-    .form-group
-      .col-xs-offset-2.col-xs-10
-        %button.btn.btn-primary{type: "button", 'data-target': '#confirmSubmission', 'data-toggle': "modal"} Verstuur aanvraag
+        %ul.items
+          %li
+            %i.fa.fa-check
+            Entree Zwembad
+          %li
+            %i.fa.fa-check
+            Frietjes met saus
+          %li
+            %i.fa.fa-check
+            Snack
+            %i.fa.fa-info-circle.info-snack
+          %li
+            %i.fa.fa-check
+            Drankje
+            %i.fa.fa-info-circle.info-drink
+          %li
+            %i.fa.fa-check
+            IJsje
+          %li
+            %i.fa.fa-check
+            Jarige: snoepzak
+
+        .checkbox
+        -# .checkbox
+          %input#checkbox-pie{type: "checkbox"}
+          %label{for: 'checkbox-pie'}
+            Goedkopere taart arrangement.
+            %i.fa.fa-info-circle
+
+        .radio.radio-center
+          %input#radio-standard{type: "radio", name: "kinderfeest-type", value: "standard"}
+          %label{for: 'radio-standard'}
+
+    .col-sm-4
+      .inner
+        %h3 Luxe Zwemfeestje
+        %h4.subtitle &euro; 12,75 p.p.
+
+        %ul.items
+          %li
+            %i.fa.fa-check
+            Entree Zwembad
+          %li
+            %i.fa.fa-check
+            Frietjes met saus
+          %li
+            %i.fa.fa-check
+            Snack
+            %i.fa.fa-info-circle.info-snack
+          %li
+            %i.fa.fa-check
+            Drankje
+            %i.fa.fa-info-circle.info-drink
+          %li
+            %i.fa.fa-check
+            IJsje
+          %li
+            %i.fa.fa-check
+            Jarige: snoepzak
+          %li.special
+            %i.fa.fa-check
+            Slagroomtaart
+          %li.special
+            %i.fa.fa-check
+            Extra drankje
+
+        .checkbox
+        .radio.radio-center
+          %input#radio-lux{type: "radio", name: "kinderfeest-type", value: "luxe"}
+          %label{for: 'radio-lux'}
+
+    .col-sm-4
+      .inner
+        %h3 Film en Zwemfeestje
+        %h4.subtitle &euro; 16,95 p.p.
+
+        %ul.items
+          %li
+            %i.fa.fa-check
+            Entree Zwembad
+          %li
+            %i.fa.fa-check
+            Frietjes met saus
+          %li
+            %i.fa.fa-check
+            Snack
+            %i.fa.fa-info-circle.info-snack
+          %li
+            %i.fa.fa-check
+            Drankje
+            %i.fa.fa-info-circle.info-drink
+          %li
+            %i.fa.fa-check
+            IJsje
+          %li
+            %i.fa.fa-check
+            Jarige: snoepzak
+          %li.special
+            %i.fa.fa-check
+            Bioscoopkaartje voor Euroscoop
+
+        .checkbox
+          %input#checkbox-3D{type: "checkbox"}
+          %label{for: 'checkbox-3D'}
+            Extra 3D bril. &euro; 1,- p.p.
+
+        .radio.radio-center
+          %input#radio-movie{type: "radio", name: "kinderfeest-type", value: "film"}
+          %label{for: 'radio-movie'}
+
+%section.container-fluid.form-and-summary
+  %form#form-main.container{'data-toggle': "validator", role: "form"}
+    .row
+      .col-sm-6
+        %h3 Aanvraag
+        .form-group
+          %label.control-label{for: "inputEmail"} Email
+          %input.form-control#inputEmail{ type: "email",
+                                          placeholder: "Email",
+                                          pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
+                                          'data-error':"Email adres is incorrect",
+                                          required: ""}
+          .help-block.with-errors
+        .form-group
+          %label.control-label{for: "inputDate"} Datum
+          %input.form-control.datepicker#inputDate{ type: "text",
+                                                    placeholder: "dd-mm-jjjj",
+                                                    'data-error': "Vul een correcte datum in",
+                                                    required: ""}
+          .help-block.with-errors
+        .form-group
+          %label.control-label{for: "inputTime"} Voorkeur Etenstijd
+          .input-group.bootstrap-timepicker.timepicker
+            %input.form-control.input-small#inputTime{  type: "text",
+                                                        placeholder: "12:45",
+                                                        'data-error': "Vul een correcte tijd in",
+                                                        required: ""}
+              %span.input-group-addon
+                %i.glyphicon.glyphicon-time
+
+            %span.add-on
+              %i.icon-time
+          .help-block.with-errors
+        .form-group
+          %label.control-label{for: "inputAdults"} Aantal volwassenen
+          %input.form-control#inputAdults{ type: "number",
+                                          placeholder: "'2'",
+                                          min: "1",
+                                          max: "99",
+                                          'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 1 en 99 zitten.",
+                                          required: ""}
+          .help-block.with-errors
+        .form-group
+          %label.control-label{for: "inputChildren"} Aantal kinderen (tot 18 jaar)
+          %input.form-control#inputChildren{ type: "number",
+                                          placeholder: "'7'",
+                                          min: "0",
+                                          max: "99",
+                                          'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 0 en 99 zitten.",
+                                          required: ""}
+          .help-block.with-errors
+        .form-group
+          %label.control-label{for: "inputExtra"} Extra opmerkingen
+          %input.form-control#inputExtra{ type: "text",
+                                          placeholder: "Extra opmerkingen (maximaal 150 tekens)",
+                                          pattern: '^.{0,150}$',
+                                          'data-error': "Maximaal 150 karakters"}
+          .help-block.with-errors
+        .form-group.checkbox
+          %input#checkbox-camera{type: "checkbox"}
+          %label{for: 'checkbox-camera'}
+            Onderwatercamera voor 15 minuten. &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
+
+      .summary-view.col-sm-6
+        %h3 Overzicht
+        / This table is generated automatically.
+        %table
+        .small-note Dit overzicht wordt automatisch bijgewerkt.
+        
+
+    .row.final-button
+      .form-group
+        %button.btn.btn-primary{type: "submit"} Verstuur aanvraag
 
   / The modal for confirmation
   .modal.fade#confirmSubmission
@@ -32,29 +208,35 @@
           .form-horizontal
             .form-group
               %label.col-xs-4 Email
-              .col-xs-8
-                HeyDitIsEenEmail@Gmail.com
+              .col-xs-8#modalEmail
+
             .form-group
               %label.col-xs-4 Omschrijving
-              .col-xs-8
-                Kinderfeestje met zwemmen en taart.
+              .col-xs-8#modalSummary
+
             .form-group
-              %label.col-xs-4 Aantal personen
-              .col-xs-8
-                32 personen
+              %label.col-xs-4 Aantal volwassenen
+              .col-xs-8#modalAdults
+
+            .form-group
+              %label.col-xs-4 Aantal kinderen
+              .col-xs-8#modalChildren
+
             .form-group
               %label.col-xs-4 Totaalprijs
-              .col-xs-8
-                &euro;427.84
+              .col-xs-8#modalPrice
+
             .form-group
               %label.col-xs-4 Datum
-              .col-xs-8
-                29 Februari 2016
+              .col-xs-8#modalDate
+
+            .form-group
+              %label.col-xs-4 Voorkeur etenstijd
+              .col-xs-8#modalTime
+
             .form-group
               %label.col-xs-4 Extra opmerkingen
-              .col-xs-8
-                Glutenvrij
+              .col-xs-8#modalExtra
         .modal-footer
           %button.btn.btn-primary{type: "submit", 'data-dismiss': "modal"} Verstuur aanvraag
           %button.btn.btn-default{type: "button", 'data-dismiss': "modal"} Annuleer
-  %p Ben je meer van de telefoon? Je kan ook een afspraak maken door te bellen op ons telefoonnummer: 013-58112684.

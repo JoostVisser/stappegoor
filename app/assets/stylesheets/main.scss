@@ -1,15 +1,22 @@
 /* Import global variables */
 @import "base/globals.scss";
 
-/* Import bootstrap */
+/* Import bootstrap and bootstrap addons*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-datepicker";
+@import "bootstrap-timepicker";
 
 /* Import font types */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700);
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+
+/* Import extra bootstrap styling */
+@import "components/awesome-bootstrap-checkbox";
 
 /* Import global styling applicable to all pages */
 @import "base/global_styling.scss";
+@import "base/global_utilities.scss";
 
 /* Import main styling of pages */
 @import "styles/header.scss";

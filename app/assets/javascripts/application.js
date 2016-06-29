@@ -13,5 +13,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-datepicker
+//= require bootstrap-timepicker
+//= require components/validator
 //= require turbolinks
-//= require_tree .
+//= require init
+//= require colours
+//= require kinderfeest

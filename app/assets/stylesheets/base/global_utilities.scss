@@ -1,0 +1,23 @@
+/* Special open button */
+.solid-link {
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 14.5px;
+
+  &:hover, &:visited, &:active, &:focus {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.radio-center {
+  text-align: center;
+}
+
+.fa-info-circle {
+  color: #1C588E;
+  margin-left: 2px;
+}

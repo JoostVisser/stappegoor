@@ -40,8 +40,12 @@ GEM
     arel (6.0.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.6.0)
+      railties (>= 3.0)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bootstrap-timepicker-rails-addon (0.5.1)
+      railties (>= 3.1, < 5.0)
     breadcrumbs_on_rails (2.3.1)
     builder (3.2.2)
     byebug (8.2.1)
@@ -171,7 +175,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-datepicker-rails
   bootstrap-sass (= 3.2.0.0)
+  bootstrap-timepicker-rails-addon (~> 0.5.1)
   breadcrumbs_on_rails
   byebug
   coffee-rails (~> 4.1.0)
