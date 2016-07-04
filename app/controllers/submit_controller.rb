@@ -1,5 +1,6 @@
 class SubmitController < ApplicationController
-  def kinderfeest
+  def kinderfeesten
+    render "submit"
   end
 
   def groupbooking

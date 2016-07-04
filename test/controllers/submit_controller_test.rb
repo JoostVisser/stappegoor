@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class SubmitControllerTest < ActionController::TestCase
-  test "should get kinderfeest" do
-    get :kinderfeest
+  test "should post kinderfeesten" do
+    post :kinderfeest
     assert_response :success
   end
 

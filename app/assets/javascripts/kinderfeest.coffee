@@ -128,7 +128,30 @@ App.Kinderfeest = class Kinderfeest
   initializeForm = ->
     initializeDatePicker()
     initializeTimePicker()
+
+    # If the modal is not open, then it will prevent the submissiona nd open the modal.
+    # Otherwise it will submit the form.
+    initializeFormSubmissionHandler()
     return
+    
+  # If the modal is not open, then it will prevent the submissiona nd open the modal.
+  # Otherwise it will submit the form.
+  initializeFormSubmissionHandler = ->
+    # Causes the modal to pop instead of doing a post submission.
+    $('#form-main').validator().on 'submit', (e) ->
+      # Modal is open so the submission will continue.
+      if $('#confirmSubmission').hasClass('in')
+        # Adding attributes such as total price and summary.
+        console.log "Normal submission"
+        # For testing purposes only.
+        e.preventDefault()
+      else
+        # Normal submission, so will prevent the submission and use the popup instead.
+        unless e.isDefaultPrevented()
+          e.preventDefault()
+          kinderPage.openModal()
+        return
+      return
 
   initializePeopleCount = ->
     $('#inputAdults').change -> 
@@ -187,7 +210,7 @@ App.Kinderfeest = class Kinderfeest
     # Initialize the popovers
     initializePopovers()
 
-    # Initialize date and time picker for the form.
+    # Initialize the forms, including date and time picker and the submission handler.
     initializeForm()
 
     # Initializes the checkbox
@@ -347,6 +370,7 @@ kinderPage = new Kinderfeest()
 priceTable = new PriceTable()
 
 $(document).on "page:change", ->
+  # Initializes the forms 
   kinderPage.initialize()
   priceTable.initializeTable()
   # The functions executed on page load.
@@ -359,12 +383,7 @@ $(document).on "page:change", ->
   # Temporary bugfix where resize does weird on particular load situation
   setTimeout(kinderPage.resizeDivs, 100) if $(window).width() >= 753
 
-  $('#form-main').validator().on 'submit', (e) ->
-    unless e.isDefaultPrevented()
-      e.preventDefault()
 
-      kinderPage.openModal()
-    return
 
   return
 

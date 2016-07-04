@@ -123,78 +123,79 @@
           %label{for: 'radio-movie'}
 
 %section.container-fluid.form-and-summary
-  %form#form-main.container{'data-toggle': "validator", role: "form"}
-    .row
-      .col-sm-6
-        %h3 Aanvraag
-        .form-group
-          %label.control-label{for: "inputEmail"} Email
-          %input.form-control#inputEmail{ type: "email",
-                                          placeholder: "Email",
-                                          pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
-                                          'data-error':"Email adres is incorrect",
-                                          required: ""}
-          .help-block.with-errors
-        .form-group
-          %label.control-label{for: "inputDate"} Datum
-          %input.form-control.datepicker#inputDate{ type: "text",
-                                                    placeholder: "dd-mm-jjjj",
-                                                    'data-error': "Vul een correcte datum in",
-                                                    required: ""}
-          .help-block.with-errors
-        .form-group
-          %label.control-label{for: "inputTime"} Voorkeur Etenstijd
-          .input-group.bootstrap-timepicker.timepicker
-            %input.form-control.input-small#inputTime{  type: "text",
-                                                        placeholder: "12:45",
-                                                        'data-error': "Vul een correcte tijd in",
-                                                        required: ""}
-              %span.input-group-addon
-                %i.glyphicon.glyphicon-time
+  .container
+    = form_tag kinderfeesten_path, id: 'form-main', 'data-toggle': "validator", role: "form" do
+      .row
+        .col-sm-6
+          %h3 Aanvraag
+          .form-group
+            %label.control-label{for: "inputEmail"} Email
+            %input.form-control#inputEmail{ type: "email",
+                                            placeholder: "Email",
+                                            pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
+                                            'data-error':"Email adres is incorrect",
+                                            required: ""}
+            .help-block.with-errors
+          .form-group
+            %label.control-label{for: "inputDate"} Datum
+            %input.form-control.datepicker#inputDate{ type: "text",
+                                                      placeholder: "dd-mm-jjjj",
+                                                      'data-error': "Vul een correcte datum in",
+                                                      required: ""}
+            .help-block.with-errors
+          .form-group
+            %label.control-label{for: "inputTime"} Voorkeur Etenstijd
+            .input-group.bootstrap-timepicker.timepicker
+              %input.form-control.input-small#inputTime{  type: "text",
+                                                          placeholder: "12:45",
+                                                          'data-error': "Vul een correcte tijd in",
+                                                          required: ""}
+                %span.input-group-addon
+                  %i.glyphicon.glyphicon-time
 
-            %span.add-on
-              %i.icon-time
-          .help-block.with-errors
-        .form-group
-          %label.control-label{for: "inputAdults"} Aantal volwassenen
-          %input.form-control#inputAdults{ type: "number",
-                                          placeholder: "'2'",
-                                          min: "1",
-                                          max: "99",
-                                          'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 1 en 99 zitten.",
-                                          required: ""}
-          .help-block.with-errors
-        .form-group
-          %label.control-label{for: "inputChildren"} Aantal kinderen (tot 18 jaar)
-          %input.form-control#inputChildren{ type: "number",
-                                          placeholder: "'7'",
-                                          min: "0",
-                                          max: "99",
-                                          'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 0 en 99 zitten.",
-                                          required: ""}
-          .help-block.with-errors
-        .form-group
-          %label.control-label{for: "inputExtra"} Extra opmerkingen
-          %input.form-control#inputExtra{ type: "text",
-                                          placeholder: "Extra opmerkingen (maximaal 150 tekens)",
-                                          pattern: '^.{0,150}$',
-                                          'data-error': "Maximaal 150 karakters"}
-          .help-block.with-errors
-        .form-group.checkbox
-          %input#checkbox-camera{type: "checkbox"}
-          %label{for: 'checkbox-camera'}
-            Onderwatercamera voor 15 minuten. &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
+              %span.add-on
+                %i.icon-time
+            .help-block.with-errors
+          .form-group
+            %label.control-label{for: "inputAdults"} Aantal volwassenen
+            %input.form-control#inputAdults{ type: "number",
+                                            placeholder: "'2'",
+                                            min: "1",
+                                            max: "99",
+                                            'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 1 en 99 zitten.",
+                                            required: ""}
+            .help-block.with-errors
+          .form-group
+            %label.control-label{for: "inputChildren"} Aantal kinderen (tot 18 jaar)
+            %input.form-control#inputChildren{ type: "number",
+                                            placeholder: "'7'",
+                                            min: "0",
+                                            max: "99",
+                                            'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 0 en 99 zitten.",
+                                            required: ""}
+            .help-block.with-errors
+          .form-group
+            %label.control-label{for: "inputExtra"} Extra opmerkingen
+            %input.form-control#inputExtra{ type: "text",
+                                            placeholder: "Extra opmerkingen (maximaal 150 tekens)",
+                                            pattern: '^.{0,150}$',
+                                            'data-error': "Maximaal 150 karakters"}
+            .help-block.with-errors
+          .form-group.checkbox
+            %input#checkbox-camera{type: "checkbox"}
+            %label{for: 'checkbox-camera'}
+              Onderwatercamera voor 15 minuten. &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
 
-      .summary-view.col-sm-6
-        %h3 Overzicht
-        / This table is generated automatically.
-        %table
-        .small-note Dit overzicht wordt automatisch bijgewerkt.
-        
+        .summary-view.col-sm-6
+          %h3 Overzicht
+          / This table is generated automatically.
+          %table
+          .small-note Dit overzicht wordt automatisch bijgewerkt.
+          
 
-    .row.final-button
-      .form-group
-        %button.btn.btn-primary{type: "submit"} Verstuur aanvraag
+      .row.final-button
+        .form-group
+          %button.btn.btn-primary{type: "submit"} Verstuur aanvraag
 
   / The modal for confirmation
   .modal.fade#confirmSubmission
@@ -238,5 +239,5 @@
               %label.col-xs-4 Extra opmerkingen
               .col-xs-8#modalExtra
         .modal-footer
-          %button.btn.btn-primary{type: "submit", 'data-dismiss': "modal"} Verstuur aanvraag
+          %button.btn.btn-primary{type: "submit", form: "form-main"} Verstuur aanvraag
           %button.btn.btn-default{type: "button", 'data-dismiss': "modal"} Annuleer
