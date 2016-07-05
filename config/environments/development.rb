@@ -1,13 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  # Settings for the mailgun mailer
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-          api_key: 'key-77590dccc2c73a6f6af2f1ff15a9d475',
-          domain: 'sandbox44b3a059a20c450a8ab5ea213dcf6f01.mailgun.org'
-  }
-
-
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

@@ -15,8 +15,6 @@ gem 'bootstrap-datepicker-rails'
 # Timepicker for form submission
 gem 'bootstrap-timepicker-rails-addon', '~> 0.5.1'
 
-gem 'mailgun_rails'
-
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
