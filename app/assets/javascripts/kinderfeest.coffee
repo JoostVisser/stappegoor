@@ -1,4 +1,4 @@
-DISABLE_SUBMIT = false
+DISABLE_SUBMIT = true
 
 App.Kinderfeest = class Kinderfeest
 
@@ -53,13 +53,22 @@ App.Kinderfeest = class Kinderfeest
         16.95
   getCurrentPacketPrice = ->
     return getPacketPrice(getPacketOption())
+  
+  getNumberOfAdults = ->
+    # Retrieve number of adults.
+    numberOfAdults = parseInt $('#inputAdults').val()
+    # If invalid it's not a number then interpret it as 0.
+    numberOfAdults = 0 if isNaN numberOfAdults
+    numberOfAdults
 
+  getNumberOfChildren = ->
+    # Retrieve number of children.
+    numberOfChildren = parseInt $('#inputChildren').val()
+    numberOfChildren = 0 if isNaN numberOfChildren
+    numberOfChildren
+  
   getNumberOfPeople = ->
-    numberOfPeople = parseInt($('#inputAdults').val()) + parseInt($("#inputChildren").val())
-    if isNaN(numberOfPeople)
-      0
-    else
-      numberOfPeople;
+    return getNumberOfAdults() + getNumberOfChildren()
 
   getTotalPrice = ->
     totalPrice = 0.0
@@ -147,8 +156,7 @@ App.Kinderfeest = class Kinderfeest
         console.log "Normal submission"
 
         # For testing purposes only.
-        if DISABLE_SUBMIT
-          e.preventDefault()
+        e.preventDefault() if DISABLE_SUBMIT
       else
         # Normal submission, so will prevent the submission and use the popup instead.
         unless e.isDefaultPrevented()
@@ -159,11 +167,11 @@ App.Kinderfeest = class Kinderfeest
 
   initializePeopleCount = ->
     $('#inputAdults').change -> 
-      priceTable.updateAmount "Volwassenen", $(this).val()
+      priceTable.updateAmount "Volwassenen", getNumberOfAdults()
       priceTable.updateAmount "3D bril", getNumberOfPeople()
 
     $('#inputChildren').change ->
-      priceTable.updateAmount "Kinderen", $(this).val()
+      priceTable.updateAmount "Kinderen", getNumberOfChildren()
       priceTable.updateAmount "3D bril", getNumberOfPeople()
   
   # Initializes the popovers.
@@ -234,8 +242,8 @@ App.Kinderfeest = class Kinderfeest
     # Add all the known information inside the model.
     $('#modalEmail').text $('#inputEmail').val()
     $('#modalSummary').text getDescriptionText()
-    $('#modalAdults').text $('#inputAdults').val()
-    $('#modalChildren').text $('#inputChildren').val()
+    $('#modalAdults').text getNumberOfAdults()
+    $('#modalChildren').text getNumberOfChildren()
     $('#modalPrice').text '\u20AC ' + getTotalPrice()
     $('#modalDate').text $('#inputDate').val()
     $('#modalTime').text $('#inputTime').val()
