@@ -3,8 +3,8 @@ require File.expand_path('../application', __FILE__)
 
 # Setting up sendgrid as mailer
 ActionMailer::Base.smtp_settings = {
-    :user_name => 'rackyl',
-    :password => 'ImThZlch1-Se',
+    :user_name => Rails.application.secrets.sendgrid_username,
+    :password => Rails.application.secrets.sendgrid_password,
     :domain => 'joostvisser.me',
     :address => 'smtp.sendgrid.net',
     :port => 587,
