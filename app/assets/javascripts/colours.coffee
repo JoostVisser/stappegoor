@@ -4,4 +4,4 @@ App.Colours =
   #clearBlue: (alpha = 1) ->
   #  "rgba(105,180,204," + alpha + ")"
   darkBlue: (alpha = 1) ->
-    "rgba(36, 113, 179, " + alpha + ")"
+    "rgba(20, 120, 220, " + alpha + ")"

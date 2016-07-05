@@ -1,6 +1,7 @@
 class SubmitController < ApplicationController
   def kinderfeesten
-    render "submit"
+    FormMailer.sample_email
+    redirect_to home_url
   end
 
   def groupbooking

@@ -1,3 +1,5 @@
+DISABLE_SUBMIT = false
+
 App.Kinderfeest = class Kinderfeest
 
   constructor: ->
@@ -143,8 +145,10 @@ App.Kinderfeest = class Kinderfeest
       if $('#confirmSubmission').hasClass('in')
         # Adding attributes such as total price and summary.
         console.log "Normal submission"
+
         # For testing purposes only.
-        e.preventDefault()
+        if DISABLE_SUBMIT
+          e.preventDefault()
       else
         # Normal submission, so will prevent the submission and use the popup instead.
         unless e.isDefaultPrevented()
