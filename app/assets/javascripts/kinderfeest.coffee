@@ -154,7 +154,12 @@ App.Kinderfeest = class Kinderfeest
       if $('#confirmSubmission').hasClass('in')
         # Adding attributes such as total price and summary.
         console.log "Normal submission"
-
+        # request = new XMLHttpRequest
+        # request.onload = callback
+        # request.open 'post', 'http://www.joostvisser.me/kinderfeest'
+        # formData = new FormData
+        # formData.append 'name', 'Perry'
+        # request.send formData
         # For testing purposes only.
         e.preventDefault() if DISABLE_SUBMIT
       else

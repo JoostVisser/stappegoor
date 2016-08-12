@@ -130,11 +130,12 @@
           %h3 Aanvraag
           .form-group
             %label.control-label{for: "inputEmail"} Email
-            %input.form-control#inputEmail{ type: "email",
-                                            placeholder: "Email",
-                                            pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
-                                            'data-error':"Email adres is incorrect",
-                                            required: ""}
+            = email_field
+            -# %input.form-control#inputEmail{ type: "email",
+            -#                                 placeholder: "Email",
+            -#                                 pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
+            -#                                 'data-error':"Email adres is incorrect",
+            -#                                 required: ""}
             .help-block.with-errors
           .form-group
             %label.control-label{for: "inputDate"} Datum
