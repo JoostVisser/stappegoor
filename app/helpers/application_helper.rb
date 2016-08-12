@@ -42,14 +42,4 @@ module ApplicationHelper
 
     content
   end
-
-  def email_field
-    email_field_tag 'inputEmail', 
-                    nil,
-                    class: 'form-control', 
-                    placeholder: "Email",
-                    pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
-                    'data-error': "Email adres is incorrect",
-                    required: ""
-  end
 end

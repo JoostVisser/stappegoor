@@ -40,6 +40,18 @@ App.Kinderfeest = class Kinderfeest
       when "film"
         "Film en Zwemfeestje"
 
+  getFullPacketDescription = ->
+    packetDescription = getDescriptionText();
+
+    if is3DCheckedWithFilm() && isCameraChecked()
+      packetDescription += " met 3D brillen en onderwater camera."
+    else if is3DCheckedWithFilm()
+      packetDescription += " met 3D brillen."
+    else if isCameraChecked
+      packetDescription += " met onderwatercamera."
+    else
+      packetDescription += "."
+
   getPacketOption = ->
     return $('input[name=kinderfeest-type]:checked', ".kinderfeest-select").val()
 
@@ -52,6 +64,7 @@ App.Kinderfeest = class Kinderfeest
       when "film"
         16.95
   getCurrentPacketPrice = ->
+
     return getPacketPrice(getPacketOption())
   
   getNumberOfAdults = ->
@@ -77,12 +90,18 @@ App.Kinderfeest = class Kinderfeest
     totalPrice += getCurrentPacketPrice() * getNumberOfPeople()
     
     # Add the price for the camera if available
-    totalPrice += 9.95 if $('#checkbox-camera').is(':checked')
+    totalPrice += 9.95 if isCameraChecked()
 
     # Add price for optional 3D glasses
-    totalPrice += getNumberOfPeople() if $('#checkbox-3D').is(':checked') && getPacketOption() == "film"
+    totalPrice += getNumberOfPeople() if is3DCheckedWithFilm()
 
     return totalPrice.toFixed(2)
+
+  is3DCheckedWithFilm = ->
+    $('#checkbox-3D').is(':checked') && getPacketOption() == "film"
+
+  isCameraChecked = ->
+    $('#checkboxCamera').is(':checked')
 
   updateRadio = ($radio) ->
     $(".kinderfeest-select .inner .radio .input")
@@ -119,7 +138,7 @@ App.Kinderfeest = class Kinderfeest
       else 
         priceTable.removeArticle "3D bril"
 
-    $('#checkbox-camera').click ->
+    $('#checkboxCamera').click ->
       if $(this).is ':checked'
         priceTable.addArticle "Onderwater Camera", 1, 9.95
       else
@@ -154,12 +173,7 @@ App.Kinderfeest = class Kinderfeest
       if $('#confirmSubmission').hasClass('in')
         # Adding attributes such as total price and summary.
         console.log "Normal submission"
-        # request = new XMLHttpRequest
-        # request.onload = callback
-        # request.open 'post', 'http://www.joostvisser.me/kinderfeest'
-        # formData = new FormData
-        # formData.append 'name', 'Perry'
-        # request.send formData
+
         # For testing purposes only.
         e.preventDefault() if DISABLE_SUBMIT
       else
@@ -244,9 +258,12 @@ App.Kinderfeest = class Kinderfeest
 
   # Fills in all modal info and opens it afterwards.
   openModal: ->
+    # Add full packet description to hidden field.
+    $('#packetType').attr('value', getFullPacketDescription())
+
     # Add all the known information inside the model.
     $('#modalEmail').text $('#inputEmail').val()
-    $('#modalSummary').text getDescriptionText()
+    $('#modalSummary').text getFullPacketDescription()
     $('#modalAdults').text getNumberOfAdults()
     $('#modalChildren').text getNumberOfChildren()
     $('#modalPrice').text '\u20AC ' + getTotalPrice()

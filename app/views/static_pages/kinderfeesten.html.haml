@@ -34,7 +34,6 @@
             %i.fa.fa-check
             Jarige: snoepzak
 
-        .checkbox
         -# .checkbox
           %input#checkbox-pie{type: "checkbox"}
           %label{for: 'checkbox-pie'}
@@ -125,68 +124,47 @@
 %section.container-fluid.form-and-summary
   .container
     = form_tag kinderfeesten_path, id: 'form-main', 'data-toggle': "validator", role: "form" do
+      = hidden_field_tag :packetType, "Standaard Zwemfeestje"
       .row
         .col-sm-6
           %h3 Aanvraag
           .form-group
-            %label.control-label{for: "inputEmail"} Email
+            = email_tag
             = email_field
-            -# %input.form-control#inputEmail{ type: "email",
-            -#                                 placeholder: "Email",
-            -#                                 pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
-            -#                                 'data-error':"Email adres is incorrect",
-            -#                                 required: ""}
             .help-block.with-errors
           .form-group
-            %label.control-label{for: "inputDate"} Datum
-            %input.form-control.datepicker#inputDate{ type: "text",
-                                                      placeholder: "dd-mm-jjjj",
-                                                      'data-error': "Vul een correcte datum in",
-                                                      required: ""}
+            = date_tag
+            = date_field
             .help-block.with-errors
           .form-group
-            %label.control-label{for: "inputTime"} Voorkeur Etenstijd
+            = time_tag
             .input-group.bootstrap-timepicker.timepicker
-              %input.form-control.input-small#inputTime{  type: "text",
-                                                          placeholder: "12:45",
-                                                          'data-error': "Vul een correcte tijd in",
-                                                          required: ""}
-                %span.input-group-addon
-                  %i.glyphicon.glyphicon-time
+              = time_field
+              %span.input-group-addon
+                %i.glyphicon.glyphicon-time
 
-              %span.add-on
-                %i.icon-time
+              -# %span.add-on
+              -#   %i.icon-time
             .help-block.with-errors
           .form-group
-            %label.control-label{for: "inputAdults"} Aantal volwassenen
-            %input.form-control#inputAdults{ type: "number",
-                                            placeholder: "'2'",
-                                            min: "1",
-                                            max: "99",
-                                            'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 1 en 99 zitten.",
-                                            required: ""}
+            = adults_tag
+            = adults_field
             .help-block.with-errors
+
           .form-group
-            %label.control-label{for: "inputChildren"} Aantal kinderen (tot 18 jaar)
-            %input.form-control#inputChildren{ type: "number",
-                                            placeholder: "'7'",
-                                            min: "0",
-                                            max: "99",
-                                            'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 0 en 99 zitten.",
-                                            required: ""}
+            = children_tag
+            = children_field
             .help-block.with-errors
+
           .form-group
-            %label.control-label{for: "inputExtra"} Extra opmerkingen
-            %input.form-control#inputExtra{ type: "text",
-                                            placeholder: "Extra opmerkingen (maximaal 150 tekens)",
-                                            pattern: '^.{0,150}$',
-                                            'data-error': "Maximaal 150 karakters"}
+            = extra_tag
+            = extra_field
             .help-block.with-errors
+
           .form-group.checkbox
-            %input#checkbox-camera{type: "checkbox"}
-            %label{for: 'checkbox-camera'}
-              Onderwatercamera voor 15 minuten. &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)
-
+            = checkbox_field
+            = checkbox_tag
+        
         .summary-view.col-sm-6
           %h3 Overzicht
           / This table is generated automatically.
