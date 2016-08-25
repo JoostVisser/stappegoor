@@ -13,6 +13,22 @@
   }
 }
 
+.btn-primary {
+  color: #fff;
+  background-color: rgba(20, 120, 220, 0.8);
+  border-color: rgba(20, 120, 220, 0.83);
+}
+/* line 11, /home/joost/.rvm/gems/ruby-2.2.1/gems/bootstrap-sass-3.2.0.0/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: rgba(20, 100, 200, 0.85);
+  border-color: rgba(20, 80, 180, 0.88);
+}
+.btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
+  background-color: rgba(20, 120, 220, 0.8);
+  border-color: rgba(20, 120, 220, 0.83);
+}
+
 .radio-center {
   text-align: center;
 }

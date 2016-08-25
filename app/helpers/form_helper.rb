@@ -81,12 +81,12 @@ module FormHelper
   end
   
   def checkbox_tag
-    @checkboxText = "Onderwatercamera voor 15 minuten. &euro; 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)"
+    @checkboxText = "Onderwatercamera voor 15 minuten. € 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)"
 
     label_tag :checkboxCamera, @checkboxText
   end
   
   def checkbox_field
-    check_box_tag :checkboxCamera, {class: "checkboxCamera"}
+    check_box_tag :checkboxCamera, "1", false, class: "checkboxCamera"
   end
 end

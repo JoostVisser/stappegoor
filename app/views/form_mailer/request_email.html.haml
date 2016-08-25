@@ -1,0 +1,54 @@
+%h3 Kinderfeest aanvraag
+
+%table
+  %tr
+    %td{style: "width: 150px;"}
+      Aanvrager
+    %td
+      =@customer_email
+  %tr
+    %td
+      Transactie ID
+    %td
+      =@transactionId
+  %tr
+    %td
+      Boeking
+    %td
+      =@transactionType
+
+  %tr
+    %td
+      Prijs
+    %td
+      ='€ %.2f' % @transactionPrice 
+
+  %tr
+    %td
+      Datum
+    %td
+      =@transactionDate
+
+  %tr
+    %td
+      Voorkeur etenstijd
+    %td
+      =@transactionTime
+
+  %tr
+    %td
+      Aantal volwassenen
+    %td
+      =@nrOfAdults
+
+  %tr
+    %td
+      Aantal kinderen
+    %td
+      =@nrOfChildren
+
+  %tr
+    %td
+      Extra opmerkingen
+    %td
+      =@extraComments

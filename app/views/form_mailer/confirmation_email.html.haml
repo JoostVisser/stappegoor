@@ -1,0 +1,64 @@
+-# Note: need to add some styling to the mail.
+%h3
+  Beste klant,
+%p
+  Jouw aanvraag wordt in behandeling genomen. Dit zijn de details van de aanvraag.
+%table
+  %tr
+    %td{style: "width: 150px;"}
+      Transactie ID
+    %td
+      =@transactionId
+  %tr
+    %td
+      Boeking
+    %td
+      =@transactionType
+
+  %tr
+    %td
+      Prijs
+    %td
+      ='€ %.2f' % @transactionPrice 
+
+  %tr
+    %td
+      Datum
+    %td
+      =@transactionDate
+
+  %tr
+    %td
+      Voorkeur etenstijd
+    %td
+      =@transactionTime
+
+  %tr
+    %td
+      Aantal volwassenen
+    %td
+      =@nrOfAdults
+
+  %tr
+    %td
+      Aantal kinderen
+    %td
+      =@nrOfChildren
+
+  %tr
+    %td
+      Extra opmerkingen
+    %td
+      =@extraComments
+
+%p
+  Binnenkort nemen we contact met je op om de aanvraag te bevestigen.
+
+%p 
+  Voor vragen kan je deze email beantwoorden of ons bellen via 013 58 11 674.
+%br
+%p
+  Met vriendelijke groet,
+
+%p
+  Team Horeca Recreatiebad Stappegoor

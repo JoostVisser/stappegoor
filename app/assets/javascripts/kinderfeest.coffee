@@ -1,4 +1,4 @@
-DISABLE_SUBMIT = true
+DISABLE_SUBMIT = false
 
 App.Kinderfeest = class Kinderfeest
 
@@ -44,7 +44,7 @@ App.Kinderfeest = class Kinderfeest
     packetDescription = getDescriptionText();
 
     if is3DCheckedWithFilm() && isCameraChecked()
-      packetDescription += " met 3D brillen en onderwater camera."
+      packetDescription += " met 3D brillen en onderwatercamera."
     else if is3DCheckedWithFilm()
       packetDescription += " met 3D brillen."
     else if isCameraChecked
