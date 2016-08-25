@@ -47,7 +47,7 @@ App.Kinderfeest = class Kinderfeest
       packetDescription += " met 3D brillen en onderwatercamera."
     else if is3DCheckedWithFilm()
       packetDescription += " met 3D brillen."
-    else if isCameraChecked
+    else if isCameraChecked()
       packetDescription += " met onderwatercamera."
     else
       packetDescription += "."
