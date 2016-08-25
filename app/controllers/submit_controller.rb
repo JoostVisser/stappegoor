@@ -4,6 +4,7 @@ class SubmitController < ApplicationController
     # The price is calculated afterwards to avoid people messing with it.
     transactionPrice = calculateTransactionPrice transactionHash
     FormMailer.confirmation_email(transactionHash, transactionPrice).deliver_now
+    FormMailer.request_email(transactionHash, transactionPrice).deliver_now
     redirect_to "/"
   end
 
