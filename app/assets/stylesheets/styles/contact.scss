@@ -1,34 +1,37 @@
-.maps {
-  margin-bottom: 2em;
-  position: relative;
-  padding-bottom: 75%;
-  height: 0;
-  overflow: hidden;
-  background-color: rgb(229, 227, 223);
+.contact{
+  padding-top: 20px;
+  .maps {
+    margin-bottom: 2em;
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+    background-color: rgb(229, 227, 223);
 
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
-
-.contact-info {
-  /* Only show border for non-phone screens */
-  @media only screen and (min-width : 768px) {
-    border-left: 1px solid $broken-black;
-  }
-  .address {
-    padding-bottom: 20px;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
   }
 
-  .opening-hours {
-    padding-bottom: 10px;
-    /* Extra padding for mobile view */
-    @media only screen and (max-width : 767px) {
+  .contact-info {
+    /* Only show border for non-phone screens */
+    @media only screen and (min-width : 768px) {
+      border-left: 1px solid $broken-black;
+    }
+    .address {
       padding-bottom: 20px;
+    }
+
+    .opening-hours {
+      padding-bottom: 10px;
+      /* Extra padding for mobile view */
+      @media only screen and (max-width : 767px) {
+        padding-bottom: 20px;
+      }
     }
   }
 }

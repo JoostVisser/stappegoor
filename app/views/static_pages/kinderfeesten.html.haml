@@ -4,9 +4,45 @@
   .top-header
     %h1 Kinderfeesten
 
+%section.container.intro-text
+  .row.flex-vertical
+    .col-sm-8.xs-extra-padding-bottom
+      %h4 Een spetterend kinderfeestje
+      %p 
+        Recreatiebad Stappegoor is de plek voor waterplezier. 
+        Kinderen kunnen zich uitleven door van de glijbanen te roetsjen 
+        of zich te laten meeslepen door de stroomversnellingen. 
+        Genieten van de zon? Dat kan op de grote ligweide bij het buitenbad. 
+        Hierdoor is zwembad Stappegoor een aanrader op zowel zonnige als regenachtige dagen. 
+        
+      %p 
+        Genoeg waterpret gehad? De verschillende wellnessvoorzieningen bieden volop ontspanning. 
+        Maak gebruik van de whirlpools, jetstreams, Turkse stoombaden en snelbruiners. 
+        Kom dus een heerlijk dagje plonzen in zwembad Stappegoor!
 
-%section.container
-  .row.kinderfeest-select
+      %p 
+        Voor een speciaal duikfeestje kan je terecht bij 
+        = succeed "." do
+          = link_to "DiveSenses", "http://www.divesenses.nl/Kinderen/Duikfeestje_Kinderfeestje_duiken/"
+
+      %p
+        Een kinderfeestje kan pas aangevraagd worden vanaf 5 kinderen. 
+        Je kan ook telefonisch een kinderfeestje aanvragen door 
+        te bellen naar 013 58 11 674.
+
+    .col-sm-4.xs-top-bot-border.sm-left-border
+      %h4
+        Tips
+      %p
+        1. Geen zin om zelf te zwemmen? Er is sterke WiFi in onze cafétaria. 
+
+      %p
+        2. Halal of glutenvrij eten kan gewoon bij ons besteld worden.
+      
+
+%section.container.kinderfeest-select
+  %h3 Kinderfeest pakketten
+  .row
     .col-sm-4
       .inner
         %h3 Standaard Zwemfeestje
@@ -15,10 +51,11 @@
         %ul.items
           %li
             %i.fa.fa-check
-            Entree Zwembad
+            Entree zwembad
           %li
             %i.fa.fa-check
             Frietjes met saus
+            %i.fa.fa-info-circle.info-food
           %li
             %i.fa.fa-check
             Snack
@@ -32,7 +69,7 @@
             IJsje
           %li
             %i.fa.fa-check
-            Jarige: snoepzak
+            Snoepzak voor de jarige
 
         -# .checkbox
           %input#checkbox-pie{type: "checkbox"}
@@ -53,10 +90,11 @@
         %ul.items
           %li
             %i.fa.fa-check
-            Entree Zwembad
+            Entree zwembad
           %li
             %i.fa.fa-check
             Frietjes met saus
+            %i.fa.fa-info-circle.info-food
           %li
             %i.fa.fa-check
             Snack
@@ -70,7 +108,7 @@
             IJsje
           %li
             %i.fa.fa-check
-            Jarige: snoepzak
+            Snoepzak voor de jarige
           %li.special
             %i.fa.fa-check
             Slagroomtaart
@@ -91,10 +129,11 @@
         %ul.items
           %li
             %i.fa.fa-check
-            Entree Zwembad
+            Entree zwembad
           %li
             %i.fa.fa-check
-            Frietjes met saus
+            Frietjes met saus 
+            %i.fa.fa-info-circle.info-food
           %li
             %i.fa.fa-check
             Snack
@@ -108,15 +147,16 @@
             IJsje
           %li
             %i.fa.fa-check
-            Jarige: snoepzak
+            Snoepzak voor de jarige
           %li.special
             %i.fa.fa-check
-            Bioscoopkaartje voor Euroscoop
+            Bioscoopkaartje voor 
+            = link_to "Euroscoop", "https://www.euroscoop.nl/tilburg/films/"
 
         .checkbox
           %input#checkbox-3D{type: "checkbox"}
           %label{for: 'checkbox-3D'}
-            Extra 3D bril. &euro; 1,- p.p.
+            Extra 3D bril voor &euro; 1,- p.p.
 
         .radio.radio-center
           %input#radio-movie{type: "radio", name: "kinderfeest-type", value: "film"}
@@ -127,7 +167,7 @@
     = form_tag kinderfeesten_path, id: 'form-main', 'data-toggle': "validator", role: "form" do
       = hidden_field_tag :packetType, "Standaard Zwemfeestje"
       .row
-        .col-sm-6
+        .col-sm-6.xs-extra-padding-bottom
           %h3 Aanvraag
           .form-group
             = email_tag

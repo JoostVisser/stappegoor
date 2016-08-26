@@ -47,8 +47,8 @@ module FormHelper
                       nil,
                       class: "form-control",
                       placeholder: "'2'",
-                      in: 1...100,
-                      'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 1 en 99 zitten.",
+                      in: 0...100,
+                      'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 0 en 99 zitten.",
                       required: ""
       
   end
@@ -62,8 +62,8 @@ module FormHelper
                       nil,
                       class: "form-control",
                       placeholder: "'10'",
-                      in: 0...100,
-                      'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 0 en 99 zitten.",
+                      in: 5...100,
+                      'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 5 en 99 zitten.",
                       required: ""
   end
 
@@ -81,7 +81,7 @@ module FormHelper
   end
   
   def checkbox_tag
-    @checkboxText = "Onderwatercamera voor 15 minuten. € 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)"
+    @checkboxText = "Onderwatercamera voor 15 minuten: € 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)"
 
     label_tag :checkboxCamera, @checkboxText
   end

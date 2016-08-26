@@ -1,46 +1,76 @@
 /* Kinderfeest page styling */
 
-.kinderfeest-select{
-  .inner{
-    border: 1px solid transparent;
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+.intro-text {
+  .sm-left-border {
+    @media all and (min-width: 768px){
+      border-left: 1px solid $broken-black;
+    }
+  }
+  .xs-top-bot-border {
+    @media all and (max-width: 767px){
+      border-top: 1px solid $broken-black;
+      padding-top: 10px;
+      border-bottom: 1px solid $broken-black;
+      padding-bottom: 10px;
+    }
+  }
+
+}
+
+.kinderfeest-select {
+  // The first header.
+  h3 {
     padding-bottom: 10px;
-    background-color: rgba(36,113,179,0.2);
-    cursor: pointer;
-    margin-bottom: 20px;
+  }
 
-    h3 {
-      line-height: 1.25;
+  // Everything in the description boxes
+  .row {
+    div:first-child .inner {
+      background-color: rgba(20, 120, 220, 0.65);
     }
-    .subtitle {
-      color: rgba(0, 0, 0, 0.5);
-    }
+    
+    .inner{
+      border: 1px solid transparent;
+      position: relative;
+      min-height: 1px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 10px;
+      background-color: rgba(20, 120, 220, 0.15);
+      cursor: pointer;
+      margin-bottom: 20px;
 
-    .items {
-      list-style-type: none;
-      background-color: white;
-      margin: 15px -16px;
-      padding: 10px 20px;
-      line-height: 2.5;
-      font-size: 16px;
-      .fa-check {
-        margin-right: 10px;
+      h3 {
+        line-height: 1.25;
       }
-      .special .fa-check {
-          color: $darkwater;
+      .subtitle {
+        color: rgba(0, 0, 0, 0.5);
       }
-      .popover {
-        font-size: 14px;
-        line-height: normal;
-      }
-    }
 
-    .radio input {
-      height: 0;
-      width: 0;
+      .items {
+        list-style-type: none;
+        background-color: white;
+        margin: 15px -16px;
+        padding: 10px 20px;
+        line-height: 2.5;
+        font-size: 16px;
+        .fa-check {
+          margin-right: 10px;
+        }
+        .special .fa-check {
+            color: $darkwater;
+        }
+        .popover {
+          font-size: 14px;
+          line-height: normal;
+          padding-left: 10px;
+        }
+      }
+
+      .radio input {
+        height: 0;
+        width: 0;
+      }
     }
   }
 }
@@ -67,6 +97,10 @@
 
   // The summary
   .summary-view {
+    @media all and (max-width: 767px) {
+      border-top: 1px solid rgba(21, 25, 29, 0.15);
+    }
+
     table {
       width: 100%;
       font-size: 16px;

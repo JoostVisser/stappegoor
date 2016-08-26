@@ -37,3 +37,20 @@
   color: #1C588E;
   margin-left: 2px;
 }
+
+.flex-vertical {
+  @media all and (min-width: 768px){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.extra-padding-top {
+  padding-top: 20px;
+}
+.xs-extra-padding-bottom {
+  @media all and (max-width: 767px){
+    padding-bottom: 10px;
+  }
+}

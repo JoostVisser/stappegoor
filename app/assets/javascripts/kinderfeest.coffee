@@ -195,15 +195,23 @@ App.Kinderfeest = class Kinderfeest
   
   # Initializes the popovers.
   initializePopovers = ->
+    $('.info-food').popover
+      trigger: 'hover'
+      content: 'Geen zin in friet met een snack? Kies dan uit: pannenkoeken, belegd pistoletje of een salade.'
+      placement: 'top'
+      container: 'body' 
+
     $(".info-snack").popover
       trigger: 'hover'
-      content: 'Keuze uit: frikankel, kroket, kaassoufflé, ...'
-      placement: 'right'
+      content: 'Keuze uit: frikandel, kroket, kaassoufflé of halal frikandel'
+      placement: 'top'
+      container: 'body'
 
     $(".info-drink").popover
       trigger: 'hover'
-      content: 'Keuze uit: Cola, Fanta, ...'
-      placement: 'right'
+      content: 'Keuze uit: Coca Cola (Light), Fanta, Sprite, Capri-Sun, Chaudfontaine Blauw, koffie, thee of cappuccino.'
+      placement: 'top'
+      container: 'body'
     return
 
   # Initializes the time picker of the form
@@ -232,9 +240,9 @@ App.Kinderfeest = class Kinderfeest
 
   # Makes sure that the height of the divs of the three block are same height
   resizeDivs: ->
-    divSameHeight $(".kinderfeest-select h3")
-    divSameHeight $(".kinderfeest-select .items")
-    divSameHeight $(".kinderfeest-select .checkbox")
+    divSameHeight $(".kinderfeest-select .inner h3")
+    divSameHeight $(".kinderfeest-select .inner .items")
+    divSameHeight $(".kinderfeest-select .inner .checkbox")
     return
 
   initialize: ->
@@ -244,7 +252,7 @@ App.Kinderfeest = class Kinderfeest
     # Initialize the forms, including date and time picker and the submission handler.
     initializeForm()
 
-    # Initializes the checkbox
+    # Initializes the checkboxes
     initializeCheckbox()
 
     # Initializes the events that update the price on people change.
@@ -277,9 +285,9 @@ App.Kinderfeest = class Kinderfeest
 
   # Puts the height to auto
   autoDivs: ->
-    $(".kinderfeest-select h3").height('auto')
-    $(".kinderfeest-select .items").height('auto')
-    $(".kinderfeest-select .checkbox").height('auto')
+    $(".kinderfeest-select .inner h3").height('auto')
+    $(".kinderfeest-select .inner .items").height('auto')
+    $(".kinderfeest-select .inner .checkbox").height('auto')
     return
 
 App.Article = class Article
