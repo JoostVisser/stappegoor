@@ -27,7 +27,7 @@ module FormHelper
   end
 
   def time_tag
-    label_tag :inputTime, "Voorkeur Etenstijd", class: 'control-label'
+    label_tag :inputTime, "Voorkeur lunchtijd", class: 'control-label'
   end
 
   def time_field
