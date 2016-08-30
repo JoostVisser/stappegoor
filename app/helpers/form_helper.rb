@@ -22,7 +22,7 @@ module FormHelper
                     class: 'form-control', 
                     placeholder: "Email",
                     pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
-                    'data-error': "Email adres is incorrect",
+                    'data-error': "Email adres is incorrect.",
                     required: ""
   end
 
@@ -34,7 +34,7 @@ module FormHelper
     text_field_tag  :inputTime,
                     nil,
                     class: "form-control input-small",
-                    'data-error': "Vul een correcte tijd in",
+                    'data-error': "Vul een correcte tijd in.",
                     required: ""
   end
 
@@ -48,7 +48,7 @@ module FormHelper
                       class: "form-control",
                       placeholder: "'2'",
                       in: 0...100,
-                      'data-error': "Incorrect aantal volwassenen, het aantal moet tussen de 0 en 99 zitten.",
+                      'data-error': "Incorrect aantal volwassenen. Minimaal 0 volwassenen, maximaal 99.",
                       required: ""
       
   end
@@ -63,7 +63,7 @@ module FormHelper
                       class: "form-control",
                       placeholder: "'10'",
                       in: 5...100,
-                      'data-error': "Incorrect aantal kinderen, het aantal moet tussen de 5 en 99 zitten.",
+                      'data-error': "Incorrect aantal kinderen. Minimaal 5 kinderen, maximaal 99 kinderen.",
                       required: ""
   end
 

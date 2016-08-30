@@ -1,2 +1,15 @@
-%h1 StaticPages#kinderfeest_failure
-%p Find me in app/views/static_pages/kinderfeest_failure.html.haml
+= provide(:title, "Kinderfeesten")
+
+.container
+  %h2 Aanvraag mislukt
+
+  %p 
+    Helaas, er is iets misgegaan met de aanvraag. 
+    Probeer het nog een keer door terug te gaan naar 
+    = succeed "." do
+      = link_to "Kinderfeesten", kinderfeesten_url
+  %p
+    Mocht je vaker deze fout krijgen, dan kan je contact met ons op te nemen door te 
+    bellen naar 013 58 11 674 of te mailen naar 
+    = succeed "." do
+      %a{href: "mailto:info@horecatilburg.nl"} info@horecatilburg.nl

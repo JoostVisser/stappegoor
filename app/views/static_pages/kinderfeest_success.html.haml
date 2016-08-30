@@ -1,2 +1,14 @@
-%h1 StaticPages#kinderfeest_success
-%p Find me in app/views/static_pages/kinderfeest_success.html.haml
+= provide(:title, "Kinderfeesten")
+
+.container
+  %h2 Aanvraag voltooid
+
+  %p 
+    De aanvraag is verstuurd. 
+    Binnenkort nemen we contact met je op via de mail. 
+    
+  %p
+    Mocht je vragen hebben, dan kan je altijd contact op nemen door te bellen naar 
+    013 58 11 674 of te mailen naar
+    = succeed "." do
+      %a{href: "mailto:info@horecatilburg.nl"} info@horecatilburg.nl

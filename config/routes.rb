@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'static_pages/kinderfeest_success'
-
-  get 'static_pages/kinderfeest_failure'
-
   root 'static_pages#home'
 
   get 'stappegoor' => redirect("/")
@@ -10,6 +6,12 @@ Rails.application.routes.draw do
   get 'kinderfeesten' => 'static_pages#kinderfeesten'
 
   post 'kinderfeesten' => 'submit#kinderfeesten'
+
+  get 'kinderfeesten/gelukt' => 'static_pages#kinderfeest_success', 
+      as: 'kinderfeest_success'
+
+  get 'kinderfeesten/mislukt' => 'static_pages#kinderfeest_failure',
+      as: 'kinderfeest_failure'
 
   get 'contact' => 'static_pages#contact'
 
