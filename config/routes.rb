@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/kinderfeest_success'
+
+  get 'static_pages/kinderfeest_failure'
+
   root 'static_pages#home'
 
   get 'stappegoor' => redirect("/")
