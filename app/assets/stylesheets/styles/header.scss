@@ -61,13 +61,13 @@
     }
 
     /* In case of some smaller displays */
-    @media all and (max-width: 1199px) {
+    @media all and (max-width: 768px) {
 
     }
   }
 }
 
-@media all and (max-width: 1199px) {
+@media all and (max-width: 768px) {
   .navbar .nav {
     margin-top: 0;
     background-color: $broken-black;

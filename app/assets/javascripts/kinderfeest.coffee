@@ -355,7 +355,7 @@ App.PriceTable = class PriceTable
     @summaryTable.push(volwassenArticle) unless @inTable "Volwassenen"
     @summaryTable.push(childrenArticle) unless @inTable "Kinderen"
 
-    $('table').append "<tr>
+    $('.summary-view table').append "<tr>
       <th>Omschrijving</th>
       <th>Aantal</th>
       <th>Totaal Prijs</th>
@@ -378,7 +378,7 @@ App.PriceTable = class PriceTable
 
   updateTable: ->
     #Remove all but the first element of the table
-    $('table tr').slice(1).remove() 
+    $('.summary-view table tr').slice(1).remove() 
     
     totalPrice = 0
     # Adds the price of the current article to the total price and appends 
@@ -394,14 +394,14 @@ App.PriceTable = class PriceTable
           totalArticlePrice = articleAmount * articlePrice
           totalPrice += totalArticlePrice
 
-          $('table').append "<tr>
+          $('.summary-view table').append "<tr>
             <td>#{articleDescription}</td>
             <td>#{articleAmount}</td>
             <td>&euro; #{totalArticlePrice.toFixed(2)}</td>
             </tr>"
 
     # Append total price
-    $('table').append "<tr>
+    $('.summary-view table').append "<tr>
       <td>Totaal</td>
       <td></td>
       <td>&euro; #{totalPrice.toFixed(2)}</td>
