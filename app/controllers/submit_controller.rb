@@ -3,7 +3,13 @@ class SubmitController < ApplicationController
     transactionHash = params.except("utf8")
     # The price is calculated afterwards to avoid people messing with it.
     transactionPrice = calculateTransactionPrice transactionHash
-    if transactionPrice == 0
+    
+    nrOfPersons = transactionHash["inputNrOfPersons"].to_f
+    nrOfDiscounts = transactionHash["inputNrOfDiscounts"].to_f
+
+
+    # If illegal transactionprice or less than 5 persons.
+    if transactionPrice == 0 || (nrOfPersons + nrOfDiscounts < 5)
       redirect_to kinderfeest_failure_url
     else
       FormMailer.confirmation_email(transactionHash, transactionPrice).deliver_now
@@ -18,8 +24,8 @@ class SubmitController < ApplicationController
   # Helper functions
   def calculateTransactionPrice(transactionHash)
     transactionType = transactionHash["packetType"]
-    nrOfAdults = transactionHash["inputAdults"].to_f
-    nrOfChildren = transactionHash["inputChildren"].to_f
+    nrOfPersons = transactionHash["inputNrOfPersons"].to_f
+    nrOfDiscounts = transactionHash["inputNrOfDiscounts"].to_f
     if transactionType.include? "Standaard Zwemfeestje"
       costPerPerson = 9.95
     elsif transactionType.include? "Luxe Zwemfeestje"
@@ -33,7 +39,7 @@ class SubmitController < ApplicationController
     costPerPerson += 1  if transactionType.include? "3D brillen"
     
     # Calculation of the cost.
-    transactionPrice = (nrOfAdults + nrOfChildren) * costPerPerson
+    transactionPrice = (nrOfPersons + nrOfDiscounts) * costPerPerson
 
     # Optional under water camera.
     transactionPrice += 9.95 if transactionType.include? "onderwatercamera"

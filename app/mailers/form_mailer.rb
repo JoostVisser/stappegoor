@@ -6,8 +6,8 @@ class FormMailer < ApplicationMailer
               # "inputEmail"=>"Joost.visser1@gmail.com", 
               # "inputDate"=>"26-08-2016", 
               # "inputTime"=>"12:45", 
-              # "inputAdults"=>"3", 
-              # "inputChildren"=>"2", 
+              # "inputNrOfPersons"=>"3", 
+              # "inputNrOfDiscounts"=>"2", 
               # "inputExtra"=>"Glutenvrij.", 
               # "checkboxCamera"=>"1"}
 
@@ -23,8 +23,8 @@ class FormMailer < ApplicationMailer
     @transactionDate = transactionHash["inputDate"]
     @transactionTime = transactionHash["inputTime"]
 
-    @nrOfAdults = transactionHash["inputAdults"]
-    @nrOfChildren = transactionHash["inputChildren"]
+    @nrOfPersons = transactionHash["inputNrOfPersons"]
+    @nrOfDiscounts = transactionHash["inputNrOfDiscounts"]
 
     @customer_email = transactionHash["inputEmail"]
     @extraComments = transactionHash["inputExtra"]

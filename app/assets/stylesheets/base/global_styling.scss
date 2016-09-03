@@ -34,3 +34,14 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+// Removing spinners from input fields.
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -26,7 +26,7 @@
           = link_to "DiveSenses", "http://www.divesenses.nl/Kinderen/Duikfeestje_Kinderfeestje_duiken/"
 
       %p
-        Een kinderfeestje kan pas aangevraagd worden <i>vanaf 5 kinderen</i>. 
+        Een kinderfeestje kan pas aangevraagd worden <i>vanaf 5 personen</i>. 
         Je kan ook telefonisch een kinderfeestje aanvragen door 
         te bellen naar 013 58 11 674.
 
@@ -188,13 +188,13 @@
               -#   %i.icon-time
             .help-block.with-errors
           .form-group
-            = adults_tag
-            = adults_field
+            = nr_of_persons_tag
+            = nr_of_persons_field
             .help-block.with-errors
 
           .form-group
-            = children_tag
-            = children_field
+            = nr_of_discounts_tag
+            = nr_of_discounts_field
             .help-block.with-errors
 
           .form-group
@@ -252,12 +252,12 @@
               .col-xs-8#modalDate
 
             .form-group
-              %label.col-xs-4 Voorkeur lunchtijd
+              %label.col-xs-4 Voorkeur etenstijd
               .col-xs-8#modalTime
 
             .form-group
               %label.col-xs-4 Extra opmerkingen
               .col-xs-8#modalExtra
         .modal-footer
-          %button.btn.btn-primary{type: "submit", form: "form-main"} Verstuur aanvraag
+          %button.btn.btn-primary#submitButton{type: "submit"} Verstuur aanvraag
           %button.btn.btn-default{type: "button", 'data-dismiss': "modal"} Annuleer

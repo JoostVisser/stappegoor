@@ -80,14 +80,9 @@
 
   // The form
   #form-main {
-    #inputAdults, #inputChildren {
+    #inputNrOfPersons, #inputNrOfDiscounts {
       width: 50px;
       text-align: center;
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-      }
     }
     /* Padding fix */
     .datepicker {

@@ -27,7 +27,7 @@ module FormHelper
   end
 
   def time_tag
-    label_tag :inputTime, "Voorkeur lunchtijd", class: 'control-label'
+    label_tag :inputTime, "Voorkeur etenstijd", class: 'control-label'
   end
 
   def time_field
@@ -38,32 +38,32 @@ module FormHelper
                     required: ""
   end
 
-  def adults_tag
-    label_tag :inputAdults, "Aantal volwassenen", class: 'control-label'
+  def nr_of_persons_tag
+    label_tag :inputNrOfPersons, "Aantal volwassenen", class: 'control-label'
   end
 
-  def adults_field
-    number_field_tag  :inputAdults,
+  def nr_of_persons_field
+    number_field_tag  :inputNrOfPersons,
                       nil,
                       class: "form-control",
                       placeholder: "'2'",
                       in: 0...100,
-                      'data-error': "Incorrect aantal volwassenen. Minimaal 0 volwassenen, maximaal 99.",
+                      'data-error': "Incorrect aantal personen. Minimaal 0, maximaal 99.",
                       required: ""
       
   end
 
-  def children_tag
-    label_tag :inputChildren, "Aantal kinderen (tot 18 jaar)", class: 'control-label'
+  def nr_of_discounts_tag
+    label_tag :inputNrOfDiscounts, "Aantal personen met korting", class: 'control-label'
   end
   
-  def children_field
-    number_field_tag  :inputChildren,
+  def nr_of_discounts_field
+    number_field_tag  :inputNrOfDiscounts,
                       nil,
                       class: "form-control",
                       placeholder: "'10'",
-                      in: 5...100,
-                      'data-error': "Incorrect aantal kinderen. Minimaal 5 kinderen, maximaal 99 kinderen.",
+                      in: 0...100,
+                      'data-error': "Incorrect aantal personen met korting. Minimaal 0, maximaal 99.",
                       required: ""
   end
 

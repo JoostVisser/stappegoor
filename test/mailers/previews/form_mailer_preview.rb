@@ -7,8 +7,8 @@ class FormMailerPreview < ActionMailer::Preview
                         "inputEmail"=>"Joost.visser1@gmail.com", 
                         "inputDate"=>"26-08-2016", 
                         "inputTime"=>"12:45", 
-                        "inputAdults"=>"3", 
-                        "inputChildren"=>"2", 
+                        "inputNrOfPersons"=>"3", 
+                        "inputNrOfDiscounts"=>"2", 
                         "inputExtra"=>"Glutenvrij.", 
                         "checkboxCamera"=>"1"}
     transactionPrice = 99.7
@@ -23,8 +23,8 @@ class FormMailerPreview < ActionMailer::Preview
                         "inputEmail"=>"Joost.visser1@gmail.com", 
                         "inputDate"=>"26-08-2016", 
                         "inputTime"=>"12:45", 
-                        "inputAdults"=>"3", 
-                        "inputChildren"=>"2", 
+                        "inputNrOfPersons"=>"3", 
+                        "inputNrOfDiscounts"=>"2", 
                         "inputExtra"=>"Glutenvrij.", 
                         "checkboxCamera"=>"1"}
     transactionPrice = 99.7

@@ -69,14 +69,14 @@ App.Kinderfeest = class Kinderfeest
   
   getNumberOfAdults = ->
     # Retrieve number of adults.
-    numberOfAdults = parseInt $('#inputAdults').val()
+    numberOfAdults = parseInt $('#inputNrOfPersons').val()
     # If invalid it's not a number then interpret it as 0.
     numberOfAdults = 0 if isNaN numberOfAdults
     numberOfAdults
 
   getNumberOfChildren = ->
     # Retrieve number of children.
-    numberOfChildren = parseInt $('#inputChildren').val()
+    numberOfChildren = parseInt $('#inputNrOfDiscounts').val()
     numberOfChildren = 0 if isNaN numberOfChildren
     numberOfChildren
   
@@ -184,12 +184,18 @@ App.Kinderfeest = class Kinderfeest
         return
       return
 
+    # Using a different way of submitting because IE cannot handle buttons 
+    # outside of the forms.
+    $("#submitButton").on 'click', ->
+      $('#form-main').submit()
+      return
+
   initializePeopleCount = ->
-    $('#inputAdults').change -> 
+    $('#inputNrOfPersons').change -> 
       priceTable.updateAmount "Volwassenen", getNumberOfAdults()
       priceTable.updateAmount "3D bril", getNumberOfPeople()
 
-    $('#inputChildren').change ->
+    $('#inputNrOfDiscounts').change ->
       priceTable.updateAmount "Kinderen", getNumberOfChildren()
       priceTable.updateAmount "3D bril", getNumberOfPeople()
   
@@ -218,11 +224,10 @@ App.Kinderfeest = class Kinderfeest
   initializeTimePicker = ->
     # Options for the timepicker
     $('#form-main #inputTime').timepicker({
-      defaultTime: '12:30',
+      defaultTime: '17:00',
       minuteStep: 15,
       showMeridian: false
     })
-
 
 
   # --- Public / Prototype methods ---
