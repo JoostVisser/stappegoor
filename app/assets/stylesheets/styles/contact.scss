@@ -18,12 +18,16 @@
   }
 
   .contact-info {
+    caption {
+      text-align: left;
+    }
+
     /* Only show border for non-phone screens */
     @media only screen and (min-width : 768px) {
       border-left: 1px solid $broken-black;
     }
     .address {
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
 
     .opening-hours {

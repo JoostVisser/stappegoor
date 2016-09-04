@@ -67,33 +67,33 @@ App.Kinderfeest = class Kinderfeest
 
     return getPacketPrice(getPacketOption())
   
-  getNumberOfAdults = ->
+  getNumberOfPersons = ->
     # Retrieve number of adults.
     numberOfAdults = parseInt $('#inputNrOfPersons').val()
     # If invalid it's not a number then interpret it as 0.
     numberOfAdults = 0 if isNaN numberOfAdults
     numberOfAdults
 
-  getNumberOfChildren = ->
+  getNumberOfDiscounts = ->
     # Retrieve number of children.
     numberOfChildren = parseInt $('#inputNrOfDiscounts').val()
     numberOfChildren = 0 if isNaN numberOfChildren
     numberOfChildren
   
-  getNumberOfPeople = ->
-    return getNumberOfAdults() + getNumberOfChildren()
+  getTotalNumberOfPeople = ->
+    return getNumberOfPersons() + getNumberOfDiscounts()
 
   getTotalPrice = ->
     totalPrice = 0.0
     
     # Adding the price for the tickets
-    totalPrice += getCurrentPacketPrice() * getNumberOfPeople()
+    totalPrice += getCurrentPacketPrice() * getTotalNumberOfPeople()
     
     # Add the price for the camera if available
     totalPrice += 9.95 if isCameraChecked()
 
     # Add price for optional 3D glasses
-    totalPrice += getNumberOfPeople() if is3DCheckedWithFilm()
+    totalPrice += getTotalNumberOfPeople() if is3DCheckedWithFilm()
 
     return totalPrice.toFixed(2)
 
@@ -124,8 +124,8 @@ App.Kinderfeest = class Kinderfeest
     return
 
   updateTablePrice = ->
-    priceTable.updatePrice "Volwassenen", getCurrentPacketPrice()
-    priceTable.updatePrice "Kinderen", getCurrentPacketPrice()
+    priceTable.updatePrice "Personen", getCurrentPacketPrice()
+    priceTable.updatePrice "Personen met korting", getCurrentPacketPrice() - 4.20
     return
 
   ### Initializers ###
@@ -134,7 +134,7 @@ App.Kinderfeest = class Kinderfeest
   initializeCheckbox = ->
     $('#checkbox-3D').click ->
       if $(this).is ':checked'
-        priceTable.addArticle "3D bril", getNumberOfPeople(), 1.00
+        priceTable.addArticle "3D bril", getTotalNumberOfPeople(), 1.00
       else 
         priceTable.removeArticle "3D bril"
 
@@ -192,12 +192,12 @@ App.Kinderfeest = class Kinderfeest
 
   initializePeopleCount = ->
     $('#inputNrOfPersons').change -> 
-      priceTable.updateAmount "Volwassenen", getNumberOfAdults()
-      priceTable.updateAmount "3D bril", getNumberOfPeople()
+      priceTable.updateAmount "Personen", getNumberOfPersons()
+      priceTable.updateAmount "3D bril", getTotalNumberOfPeople()
 
     $('#inputNrOfDiscounts').change ->
-      priceTable.updateAmount "Kinderen", getNumberOfChildren()
-      priceTable.updateAmount "3D bril", getNumberOfPeople()
+      priceTable.updateAmount "Personen met korting", getNumberOfDiscounts()
+      priceTable.updateAmount "3D bril", getTotalNumberOfPeople()
   
   # Initializes the popovers.
   initializePopovers = ->
@@ -218,6 +218,10 @@ App.Kinderfeest = class Kinderfeest
       content: 'Keuze uit: Coca Cola (Light), Fanta, Sprite, Capri-Sun, Chaudfontaine Blauw, koffie, thee of cappuccino.'
       placement: 'top'
       container: 'body'
+
+    $(".info-discount").popover
+      trigger: 'hover'
+      content: 'Voor abbonnementhouders, tjippas houders en actietarieven geldt € 4,20 korting.'
     return
 
   # Initializes the time picker of the form
@@ -240,7 +244,7 @@ App.Kinderfeest = class Kinderfeest
     updateStyle $selectedDiv
     updateTablePrice()
     if getPacketOption() == "film" && $('#checkbox-3D').is(':checked')
-      priceTable.addArticle("3D bril", getNumberOfPeople(), 1.00)
+      priceTable.addArticle("3D bril", getTotalNumberOfPeople(), 1.00)
     priceTable.removeArticle("3D bril") if getPacketOption() != "film"
 
   # Makes sure that the height of the divs of the three block are same height
@@ -277,8 +281,8 @@ App.Kinderfeest = class Kinderfeest
     # Add all the known information inside the model.
     $('#modalEmail').text $('#inputEmail').val()
     $('#modalSummary').text getFullPacketDescription()
-    $('#modalAdults').text getNumberOfAdults()
-    $('#modalChildren').text getNumberOfChildren()
+    $('#modalAdults').text getNumberOfPersons()
+    $('#modalChildren').text getNumberOfDiscounts()
     $('#modalPrice').text '\u20AC ' + getTotalPrice()
     $('#modalDate').text $('#inputDate').val()
     $('#modalTime').text $('#inputTime').val()
@@ -354,11 +358,11 @@ App.PriceTable = class PriceTable
     @summaryTable = []
 
     # Adds the Volwassenen and Children articles to the table.
-    volwassenArticle = new Article("Volwassenen", 0, 9.95)
-    childrenArticle = new Article("Kinderen", 0, 9.95)
+    volwassenArticle = new Article("Personen", 0, 9.95)
+    childrenArticle = new Article("Personen met korting", 0, 5.75)
 
-    @summaryTable.push(volwassenArticle) unless @inTable "Volwassenen"
-    @summaryTable.push(childrenArticle) unless @inTable "Kinderen"
+    @summaryTable.push(volwassenArticle) unless @inTable "Personen"
+    @summaryTable.push(childrenArticle) unless @inTable "Personen met korting"
 
     $('.summary-view table').append "<tr>
       <th>Omschrijving</th>
@@ -402,14 +406,14 @@ App.PriceTable = class PriceTable
           $('.summary-view table').append "<tr>
             <td>#{articleDescription}</td>
             <td>#{articleAmount}</td>
-            <td>&euro; #{totalArticlePrice.toFixed(2)}</td>
+            <td>€ #{totalArticlePrice.toFixed(2)}</td>
             </tr>"
 
     # Append total price
     $('.summary-view table').append "<tr>
       <td>Totaal</td>
       <td></td>
-      <td>&euro; #{totalPrice.toFixed(2)}</td>
+      <td>€ #{totalPrice.toFixed(2)}</td>
       </tr>"
     return
 

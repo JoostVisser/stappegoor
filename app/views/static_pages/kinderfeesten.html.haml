@@ -46,7 +46,7 @@
     .col-sm-4
       .inner
         %h3 Standaard Zwemfeestje
-        %h4.subtitle &euro; 9,95 p.p.
+        %h4.subtitle € 9,95 p.p.
 
         %ul.items
           %li
@@ -85,7 +85,7 @@
     .col-sm-4
       .inner
         %h3 Luxe Zwemfeestje
-        %h4.subtitle &euro; 12,75 p.p.
+        %h4.subtitle € 12,75 p.p.
 
         %ul.items
           %li
@@ -124,7 +124,7 @@
     .col-sm-4
       .inner
         %h3 Film en Zwemfeestje
-        %h4.subtitle &euro; 16,95 p.p.
+        %h4.subtitle € 16,95 p.p.
 
         %ul.items
           %li
@@ -156,7 +156,7 @@
         .checkbox
           %input#checkbox-3D{type: "checkbox"}
           %label{for: 'checkbox-3D'}
-            Extra 3D bril voor &euro; 1,- p.p.
+            Extra 3D bril voor € 1,- p.p.
 
         .radio.radio-center
           %input#radio-movie{type: "radio", name: "kinderfeest-type", value: "film"}
@@ -194,6 +194,7 @@
 
           .form-group
             = nr_of_discounts_tag
+            %i.fa.fa-info-circle.info-discount
             = nr_of_discounts_field
             .help-block.with-errors
 

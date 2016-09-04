@@ -39,7 +39,7 @@ module FormHelper
   end
 
   def nr_of_persons_tag
-    label_tag :inputNrOfPersons, "Aantal volwassenen", class: 'control-label'
+    label_tag :inputNrOfPersons, "Aantal personen", class: 'control-label'
   end
 
   def nr_of_persons_field
@@ -75,9 +75,9 @@ module FormHelper
     text_field_tag  :inputExtra,
                     nil,
                     class: "form-control",
-                    placeholder: "Extra opmerkingen (maximaal 150 tekens)",
-                    pattern: '^.{0,150}$',
-                    'data-error': "Maximaal 150 tekens"
+                    placeholder: "Extra opmerkingen (maximaal 250 tekens)",
+                    pattern: '^.{0,250}$',
+                    'data-error': "Maximaal 250 tekens."
   end
   
   def checkbox_tag

@@ -39,7 +39,8 @@ class SubmitController < ApplicationController
     costPerPerson += 1  if transactionType.include? "3D brillen"
     
     # Calculation of the cost.
-    transactionPrice = (nrOfPersons + nrOfDiscounts) * costPerPerson
+    transactionPrice = costPerPerson * nrOfPersons
+    transactionPrice += (costPerPerson - 4.20) * nrOfDiscounts
 
     # Optional under water camera.
     transactionPrice += 9.95 if transactionType.include? "onderwatercamera"

@@ -89,11 +89,16 @@
 
 .extra-information {
   .col-sm-6 {
+    h3 {
+      @media all and (min-width: 768px) {
+        margin-top: 0px;
+      }
+    }
     padding-top: 40px;
     padding-bottom: 40px;
     @media all and (max-width: 767px) {
       padding-top: 10px;
-      padding-bottom: 10px
+      padding-bottom: 10px;
     }
   }
   .half-width-image img {
