@@ -10,6 +10,14 @@ module ApplicationHelper
     end
   end
 
+  def full_description(meta_description = '')
+    if meta_description.empty?
+      "Welkom op de horeca website van Recreatiebad Stappegoor. Hier kan je een kinderfeest aanvragen of contact met ons opnemen."
+    else
+      meta_description
+    end
+  end
+  
   # Link to the website with the text.
   # Adds an active class if current page is active page.
   def nav_link(link_text, link_path)

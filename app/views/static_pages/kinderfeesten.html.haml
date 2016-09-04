@@ -1,4 +1,5 @@
-= provide(:title, "Kinderfeesten")
+= provide :title, "Kinderfeesten"
+= provide :description, "Een leuk kinderfeestje boeken bij Recreatiebad Stappegoor. Kies een pakket, vul de forumlier in en klaar."
 
 .container
   .top-header
@@ -27,9 +28,9 @@
 
       %p
         Een kinderfeestje kan pas aangevraagd worden <i>vanaf 5 personen</i>. 
-        Je kan ook telefonisch een kinderfeestje aanvragen door 
+        Verder kan je ook telefonisch een kinderfeestje aanvragen door 
         te bellen naar 013 58 11 674.
-
+ 
     .col-sm-4.xs-top-bot-border.sm-left-border
       %h4
         Tips
@@ -38,7 +39,11 @@
 
       %p
         2. Halal of glutenvrij eten kan gewoon bij ons besteld worden.
-      
+
+      %p
+        3. Je kan bij ons gebruikmaken van 
+        = succeed "." do
+          = link_to "Meedoen Tilburg", "http://www.meedoentilburg.nl/"
 
 %section.container.kinderfeest-select
   %h3 Kinderfeest pakketten
