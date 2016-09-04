@@ -87,7 +87,8 @@ App.Kinderfeest = class Kinderfeest
     totalPrice = 0.0
     
     # Adding the price for the tickets
-    totalPrice += getCurrentPacketPrice() * getTotalNumberOfPeople()
+    totalPrice += getCurrentPacketPrice() * getNumberOfPersons()
+    totalPrice += (getCurrentPacketPrice() - 4.20) * getNumberOfDiscounts()
     
     # Add the price for the camera if available
     totalPrice += 9.95 if isCameraChecked()
