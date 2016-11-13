@@ -174,24 +174,27 @@
       .row
         .col-sm-6.xs-extra-padding-bottom
           %h3 Aanvraag
+
+          .form-group
+            = name_tag
+            = name_field
+            .help-block.with-errors
+
+          .form-group
+            = birthday_boy_name_tag
+            = birthday_boy_name_field
+            .help-block.with-errors
+
           .form-group
             = email_tag
             = email_field
             .help-block.with-errors
-          .form-group
-            = date_tag
-            = date_field
-            .help-block.with-errors
-          .form-group
-            = time_tag
-            .input-group.bootstrap-timepicker.timepicker
-              = time_field
-              %span.input-group-addon
-                %i.glyphicon.glyphicon-time
 
-              -# %span.add-on
-              -#   %i.icon-time
+          .form-group
+            = phone_nr_tag
+            = phone_nr_field
             .help-block.with-errors
+
           .form-group
             = nr_of_persons_tag
             = nr_of_persons_field
@@ -204,6 +207,27 @@
             .help-block.with-errors
 
           .form-group
+            = date_tag
+            = date_field
+            .help-block.with-errors
+
+          .form-group
+            = arrival_time_tag
+            .input-group.bootstrap-timepicker.timepicker
+              = arrival_time_field
+              %span.input-group-addon
+                %i.glyphicon.glyphicon-time
+            .help-block.with-errors
+
+          .form-group
+            = time_tag
+            .input-group.bootstrap-timepicker.timepicker
+              = time_field
+              %span.input-group-addon
+                %i.glyphicon.glyphicon-time
+            .help-block.with-errors
+
+          .form-group
             = extra_tag
             = extra_field
             .help-block.with-errors
@@ -211,6 +235,7 @@
           .form-group.checkbox
             = checkbox_field
             = checkbox_tag
+            .help-block.with-errors
         
         .summary-view.col-sm-6
           %h3 Overzicht
@@ -232,38 +257,114 @@
           %h4.modal-title Bevestiging
         .modal-body
           Wil je deze aanvraag versturen?
-          .form-horizontal
-            .form-group
-              %label.col-xs-4 Email
-              .col-xs-8#modalEmail
+          %table
+            %tr
+              %td
+                %b Omschrijving
+              %td#modalSummary
 
-            .form-group
-              %label.col-xs-4 Omschrijving
-              .col-xs-8#modalSummary
+            %tr
+              %td
+                %b Naam
+              %td#modalName
 
-            .form-group
-              %label.col-xs-4 Aantal volwassenen
-              .col-xs-8#modalAdults
+            %tr
+              %td 
+                %b Naam Jarige
+              %td#modalBirthdayBoyName
 
-            .form-group
-              %label.col-xs-4 Aantal kinderen
-              .col-xs-8#modalChildren
+            %tr
+              %td 
+                %b Email
+              %td#modalEmail
 
-            .form-group
-              %label.col-xs-4 Totaalprijs
-              .col-xs-8#modalPrice
+            %tr
+              %td 
+                %b Telefoonnummer
+              %td#modalPhone
+            
+            %tr
+              %td 
+                %b Aantal personen
+              %td#modalNrOfPersons
 
-            .form-group
-              %label.col-xs-4 Datum
-              .col-xs-8#modalDate
+            %tr
+              %td 
+                %b Aantal personen met korting
+              %td#modalNrOfDiscounts
 
-            .form-group
-              %label.col-xs-4 Voorkeur etenstijd
-              .col-xs-8#modalTime
+            %tr
+              %td 
+                %b Totaalprijs
+              %td#modalPrice
 
-            .form-group
-              %label.col-xs-4 Extra opmerkingen
-              .col-xs-8#modalExtra
+            %tr
+              %td 
+                %b Datum
+              %td#modalDate
+
+            %tr
+              %td 
+                %b Aankomsttijd
+              %td#modalArrivalTime
+
+            %tr
+              %td 
+                %b Voorkeur etenstijd
+              %td#modalTime
+
+            %tr
+              %td 
+                %b Extra opmerkingen
+              %td#modalExtra
+        -# .form-horizontal
+        -#   .form-group
+        -#     %label.col-xs-4 Naam
+        -#     .col-xs-8#modalName
+
+        -#   .form-group
+        -#     %label.col-xs-4 Naam jarige
+        -#     .col-xs-8#modalBirthdayBoyName
+
+        -#   .form-group
+        -#     %label.col-xs-4 Email
+        -#     .col-xs-8#modalEmail
+
+        -#   .form-group
+        -#     %label.col-xs-4 Telefoonnummer
+        -#     .col-xs-8#modalPhone
+
+        -#   .form-group
+        -#     %label.col-xs-4 Omschrijving
+        -#     .col-xs-8#modalSummary
+
+        -#   .form-group
+        -#     %label.col-xs-4 Aantal personen
+        -#     .col-xs-8#modalNrOfPersons
+
+        -#   .form-group
+        -#     %label.col-xs-4 Aantal personen met korting
+        -#     .col-xs-8#modalNrOfDiscounts
+
+        -#   .form-group
+        -#     %label.col-xs-4 Totaalprijs
+        -#     .col-xs-8#modalPrice
+
+        -#   .form-group
+        -#     %label.col-xs-4 Datum
+        -#     .col-xs-8#modalDate
+
+        -#   .form-group
+        -#     %label.col-xs-4 Aankomsttijd
+        -#     .col-xs-8#modalArrivalTime
+
+        -#   .form-group
+        -#     %label.col-xs-4 Voorkeur etenstijd
+        -#     .col-xs-8#modalTime
+
+        -#   .form-group
+        -#     %label.col-xs-4 Extra opmerkingen
+        -#     .col-xs-8#modalExtra
         .modal-footer
           %button.btn.btn-primary#submitButton{type: "submit"} Verstuur aanvraag
           %button.btn.btn-default{type: "button", 'data-dismiss': "modal"} Annuleer
