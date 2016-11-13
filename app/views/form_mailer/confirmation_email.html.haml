@@ -1,53 +1,56 @@
--# Note: need to add some styling to the mail.
+-# Added variables: @name @arrivalTime @phoneNr @birthdayBoyName
 %h3
-  Beste klant,
+  ="Beste " + @name + ","
 %p
   Jouw aanvraag wordt in behandeling genomen. Dit zijn de details van de aanvraag.
 %table
   %tr
-    %td{style: "width: 150px;"}
-      Transactie ID
+    %td{style: "width: 150px;"} Transactie ID
     %td
       =@transactionId
+
   %tr
-    %td
-      Boeking
+    %td Boeking
     %td
       =@transactionType
 
   %tr
-    %td
-      Prijs
+    %td Prijs
     %td
       ='€ %.2f' % @transactionPrice 
 
   %tr
+    %td Telefoonnummer
     %td
-      Datum
-    %td
-      =@transactionDate
+      =@phoneNr
 
   %tr
-    %td
-      Voorkeur etenstijd
-    %td
-      =@transactionTime
-
-  %tr
-    %td
-      Aantal personen
+    %td Aantal personen
     %td
       =@nrOfPersons
 
   %tr
-    %td
-      Aantal personen met korting
+    %td Aantal personen met korting
     %td
       =@nrOfDiscounts
 
   %tr
+    %td Datum
     %td
-      Extra opmerkingen
+      =@transactionDate
+
+  %tr
+    %td Aankomsttijd
+    %td
+      =@arrivalTime
+
+  %tr
+    %td Voorkeur etenstijd
+    %td
+      =@transactionTime
+
+  %tr
+    %td Extra opmerkingen
     %td
       =@extraComments
 

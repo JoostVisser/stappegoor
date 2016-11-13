@@ -4,11 +4,15 @@ class FormMailerPreview < ActionMailer::Preview
     transactionHash = { "utf8"=>"✓", 
                         "authenticity_token"=>"4R4Bl8CkxIKrToO/0yBemlYibdZmVWVW8aRItv/eu923TiUiXX/E8wfzhgCxJEsoO9h8VZqqlCM1f6IGzpBKcA==", 
                         "packetType"=>"Film en Zwemfeestje met 3D brillen en onderwater camera.", 
+                        "inputName"=>"Joost",
+                        "inputBirthdayBoyName"=>"Hendrik",
                         "inputEmail"=>"Joost.visser1@gmail.com", 
-                        "inputDate"=>"26-08-2016", 
-                        "inputTime"=>"12:45", 
+                        "inputPhone"=>"+31640391707", 
                         "inputNrOfPersons"=>"3", 
                         "inputNrOfDiscounts"=>"2", 
+                        "inputDate"=>"26-08-2016", 
+                        "inputArrivalTime"=>"14:15", 
+                        "inputTime"=>"17:45", 
                         "inputExtra"=>"Glutenvrij.", 
                         "checkboxCamera"=>"1"}
     transactionPrice = 99.7
@@ -17,14 +21,18 @@ class FormMailerPreview < ActionMailer::Preview
   end
 
   def request_mail_preview
-        transactionHash = { "utf8"=>"✓", 
+    transactionHash = { "utf8"=>"✓", 
                         "authenticity_token"=>"4R4Bl8CkxIKrToO/0yBemlYibdZmVWVW8aRItv/eu923TiUiXX/E8wfzhgCxJEsoO9h8VZqqlCM1f6IGzpBKcA==", 
                         "packetType"=>"Film en Zwemfeestje met 3D brillen en onderwater camera.", 
+                        "inputName"=>"Joost",
+                        "inputBirthdayBoyName"=>"Hendrik",
                         "inputEmail"=>"Joost.visser1@gmail.com", 
-                        "inputDate"=>"26-08-2016", 
-                        "inputTime"=>"12:45", 
+                        "inputPhone"=>"+31640391707", 
                         "inputNrOfPersons"=>"3", 
                         "inputNrOfDiscounts"=>"2", 
+                        "inputDate"=>"26-08-2016", 
+                        "inputArrivalTime"=>"14:15", 
+                        "inputTime"=>"17:45", 
                         "inputExtra"=>"Glutenvrij.", 
                         "checkboxCamera"=>"1"}
     transactionPrice = 99.7
