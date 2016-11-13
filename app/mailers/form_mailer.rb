@@ -14,19 +14,25 @@ class FormMailer < ApplicationMailer
 # Need something to calculate the price with.
 
   def get_transaction_data (transactionHash, transactionPrice)
-    @business_email = 'kinderfeesten@horecatilburg.nl'
+
+    @business_email = 'joost.visser1@gmail.com'
+    @customer_email = transactionHash["inputEmail"]
+
+    @name = transactionHash["inputName"]
+    @birthdayBoyName = transactionHash["inputBirthdayBoyName"]
+    @phoneNr = transactionHash["inputPhone"]
 
     @transactionId = transactionHash["authenticity_token"][1..8]
     @transactionType = transactionHash["packetType"]
     @transactionPrice = transactionPrice
 
     @transactionDate = transactionHash["inputDate"]
+    @arrivalTime = transactionHash["inputArrivalTime"]
     @transactionTime = transactionHash["inputTime"]
 
     @nrOfPersons = transactionHash["inputNrOfPersons"]
     @nrOfDiscounts = transactionHash["inputNrOfDiscounts"]
 
-    @customer_email = transactionHash["inputEmail"]
     @extraComments = transactionHash["inputExtra"]
   end
 

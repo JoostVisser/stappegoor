@@ -29,30 +29,39 @@
 
       .opening-hours
         %h4 Openingstijden
+
+        Zie de website van 
+        = succeed " " do
+          = link_to "Stappegoor", 'https://www.tilburg.nl/stad-bestuur/stad/zwembaden/recreatiebad-stappegoor/#c1570'
+        voor alle openingstijden.
+
+        #table-header 
+          %b Openingstijden zwembad
         %table
-          %caption Zwembad
           %tr
             %td Maandag
-            %td 12:00 - 17:30
+            %td Gesloten
           %tr
             %td Dinsdag
-            %td 12:00 - 21:00
+            %td 13:00 - 21:00
           %tr
             %td Woensdag
-            %td 12:00 - 21:00
+            %td 14:00 - 21:00
           %tr
             %td Donderdag
-            %td 12:00 - 21:00
+            %td 14:00 - 21:00
           %tr
             %td Vrijdag
-            %td 12:00 - 21:00
+            %td 14:00 - 21:00
           %tr
             %td Zaterdag
-            %td 10:00 - 17:30
+            %td 13:00 - 17:30
           %tr
             %td Zondag
-            %td 10:00 - 17:30
-        %br
+            %td 13:00 - 17:30
+
         %ul.list-unstyled
-          %li De keuken gaat 30 minuten voor sluitingstijd dicht.
-          %li Voor maandag t/m vrijdag geldt: kinderfeestjes vanaf 14:00.      
+          %li <b>Openingstijden keuken</b>
+          %li Maandag* t/m vrijdag: 12:00 - 20:30
+          %li Zaterdag en zondag: 12:00 - 17:30
+          %li.small-text *Alleen als maandag het zwembad open is.

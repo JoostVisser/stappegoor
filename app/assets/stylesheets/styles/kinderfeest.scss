@@ -139,6 +139,12 @@
 }
 
 
-.modal .form-horizontal {
+.modal table {
   margin-top: 15px;
+  tr:first-child {
+    width: 35%;
+  }
+  td {
+    padding: 4px;
+  }
 }

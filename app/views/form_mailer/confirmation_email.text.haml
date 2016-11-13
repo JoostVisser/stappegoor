@@ -1,4 +1,4 @@
-Beste klant,
+="Beste " + @name + ","
 ="\r\n"
 
 Jouw aanvraag wordt in behandeling genomen. Dit zijn de details van de aanvraag.
@@ -6,11 +6,13 @@ Jouw aanvraag wordt in behandeling genomen. Dit zijn de details van de aanvraag.
 
 ="Transactie ID: " + @transactionId
 ="Boeking: " + @transactionType
-='Prijs: € %.2f' % @transactionPrice 
-="Datum: " + @transactionDate
-="Voorkeur etenstijd: " + @transactionTime
+="Telefoonnummer: " + @phoneNr
 ="Aantal personen: " + @nrOfPersons
 ="Aantal personen met korting: " + @nrOfDiscounts
+='Prijs: € %.2f' % @transactionPrice 
+="Datum: " + @transactionDate
+="Aankomsttijd: " + @arrivalTime
+="Voorkeur etenstijd: " + @transactionTime
 ="Extra opmerkingen: " + @extraComments
 ="\r\n"
 

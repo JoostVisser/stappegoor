@@ -12,6 +12,35 @@ module FormHelper
                     required: ""
   end
 
+  def name_tag
+    label_tag :inputName, "Naam"
+  end
+
+  def name_field
+    text_field_tag  :inputName,
+                    nil,
+                    class: "form-control",
+                    placeholder: "Naam",
+                    pattern: '^.{0,50}$',
+                    'data-error': "Maximaal 50 tekens.",
+                    required: ""
+  end
+
+  def birthday_boy_name_tag
+    label_tag :inputBirthdayBoyName, "Naam jarige"
+  end
+
+  def birthday_boy_name_field
+    text_field_tag  :inputBirthdayBoyName,
+                    nil,
+                    class: "form-control",
+                    placeholder: "Naam jarige",
+                    pattern: '^.{0,50}$',
+                    'data-error': "Maximaal 50 tekens.",
+                    required: ""
+  end
+
+
   def email_tag
     label_tag :inputEmail, "Email", class: 'control-label'
   end
@@ -26,12 +55,38 @@ module FormHelper
                     required: ""
   end
 
+  def phone_nr_tag
+    label_tag :inputPhone, "Telefoonnummer", class: 'control-label'
+  end
+
+  def phone_nr_field
+    telephone_field_tag :inputPhone,
+                        nil,
+                        class: 'form-control',
+                        placeholder: "Telefoonnummer",
+                        pattern: '(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)',
+                        'data-error': "Telefoonnummer is incorrect",
+                        required: ""
+  end
+
   def time_tag
     label_tag :inputTime, "Voorkeur etenstijd", class: 'control-label'
   end
 
   def time_field
     text_field_tag  :inputTime,
+                    nil,
+                    class: "form-control input-small",
+                    'data-error': "Vul een correcte tijd in.",
+                    required: ""
+  end
+
+  def arrival_time_tag
+    label_tag :inputArrivalTime, "Aankomsttijd", class: 'control-label'
+  end
+
+  def arrival_time_field
+    text_field_tag  :inputArrivalTime,
                     nil,
                     class: "form-control input-small",
                     'data-error': "Vul een correcte tijd in.",

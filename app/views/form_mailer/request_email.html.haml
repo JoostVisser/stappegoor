@@ -2,53 +2,66 @@
 
 %table
   %tr
-    %td{style: "width: 150px;"}
-      Aanvrager
-    %td
-      =@customer_email
-  %tr
-    %td
-      Transactie ID
+    %td{style: "width: 150px;"}Transactie ID
     %td
       =@transactionId
+
   %tr
+    %td Aanvrager
     %td
-      Boeking
+      =@customer_email
+
+  %tr
+    %td Naam
+    %td
+      =@name
+
+  %tr
+    %td Naam jarige
+    %td
+      =@birthdayBoyName
+
+  %tr
+    %td Boeking
     %td
       =@transactionType
 
   %tr
-    %td
-      Prijs
+    %td Prijs
     %td
       ='€ %.2f' % @transactionPrice 
 
   %tr
+    %td Telefoonnummer
     %td
-      Datum
-    %td
-      =@transactionDate
+      =@phoneNr
 
   %tr
-    %td
-      Voorkeur etenstijd
-    %td
-      =@transactionTime
-
-  %tr
-    %td
-      Aantal personen
+    %td Aantal personen
     %td
       =@nrOfPersons
 
   %tr
-    %td
-      Aantal personen met korting
+    %td Aantal personen met korting
     %td
       =@nrOfDiscounts
 
   %tr
+    %td Datum
     %td
-      Extra opmerkingen
+      =@transactionDate
+
+  %tr
+    %td Aankomsttijd
+    %td
+      =@arrivalTime
+
+  %tr
+    %td Voorkeur etenstijd
+    %td
+      =@transactionTime
+
+  %tr
+    %td Extra opmerkingen
     %td
       =@extraComments

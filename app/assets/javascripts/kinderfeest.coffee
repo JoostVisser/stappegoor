@@ -158,7 +158,7 @@ App.Kinderfeest = class Kinderfeest
 
   initializeForm = ->
     initializeDatePicker()
-    initializeTimePicker()
+    initializeTimePickers()
 
     # If the modal is not open, then it will prevent the submissiona nd open the modal.
     # Otherwise it will submit the form.
@@ -226,14 +226,20 @@ App.Kinderfeest = class Kinderfeest
     return
 
   # Initializes the time picker of the form
-  initializeTimePicker = ->
-    # Options for the timepicker
+  initializeTimePickers = ->
+    # Options for the ArrivalTime timepicker
+    $('#form-main #inputArrivalTime').timepicker({
+      defaultTime: '14:00',
+      minuteStep: 15,
+      showMeridian: false
+    })
+
+    # Options for the eating time timepicker
     $('#form-main #inputTime').timepicker({
       defaultTime: '17:00',
       minuteStep: 15,
       showMeridian: false
     })
-
 
   # --- Public / Prototype methods ---
 
@@ -280,12 +286,16 @@ App.Kinderfeest = class Kinderfeest
     $('#packetType').attr('value', getFullPacketDescription())
 
     # Add all the known information inside the model.
+    $('#modalName').text $('#inputName').val()
+    $('#modalBirthdayBoyName').text $('#inputBirthdayBoyName').val()
     $('#modalEmail').text $('#inputEmail').val()
+    $('#modalPhone').text $('#inputPhone').val()
     $('#modalSummary').text getFullPacketDescription()
-    $('#modalAdults').text getNumberOfPersons()
-    $('#modalChildren').text getNumberOfDiscounts()
+    $('#modalNrOfPersons').text getNumberOfPersons()
+    $('#modalNrOfDiscounts').text getNumberOfDiscounts()
     $('#modalPrice').text '\u20AC ' + getTotalPrice()
     $('#modalDate').text $('#inputDate').val()
+    $('#modalArrivalTime').text $('#inputArrivalTime').val()
     $('#modalTime').text $('#inputTime').val()
     $('#modalExtra').text $('#inputExtra').val()
 
