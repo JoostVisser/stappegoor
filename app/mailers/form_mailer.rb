@@ -15,7 +15,7 @@ class FormMailer < ApplicationMailer
 
   def get_transaction_data (transactionHash, transactionPrice)
 
-    @business_email = 'info@horecatilburg.nl'
+    @business_email = ENV["BUSINESS_EMAIL"]
     @customer_email = transactionHash["inputEmail"]
 
     @name = transactionHash["inputName"]

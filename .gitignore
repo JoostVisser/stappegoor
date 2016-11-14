@@ -21,4 +21,6 @@
 /passenger.*
 
 # Ignore secrets
-config/secrets.yml
+/secrets.yml
+# Ignore application configuration
+/config/application.yml
