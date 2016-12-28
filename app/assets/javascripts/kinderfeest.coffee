@@ -58,13 +58,14 @@ App.Kinderfeest = class Kinderfeest
   getPacketPrice = (packetValue) ->
     switch(packetValue)
       when "standard"
-        9.95
+        App.Prices.STANDARD
       when "luxe"
-        12.75
+        App.Prices.LUXE
       when "film"
-        16.95
-  getCurrentPacketPrice = ->
+        App.Prices.FILM
 
+
+  getCurrentPacketPrice = ->
     return getPacketPrice(getPacketOption())
   
   getNumberOfPersons = ->
@@ -88,10 +89,10 @@ App.Kinderfeest = class Kinderfeest
     
     # Adding the price for the tickets
     totalPrice += getCurrentPacketPrice() * getNumberOfPersons()
-    totalPrice += (getCurrentPacketPrice() - 4.20) * getNumberOfDiscounts()
+    totalPrice += (getCurrentPacketPrice() - App.Prices.SPECIAL_DISCOUNT) * getNumberOfDiscounts()
     
     # Add the price for the camera if available
-    totalPrice += 9.95 if isCameraChecked()
+    totalPrice += App.Prices.CAMERA if isCameraChecked()
 
     # Add price for optional 3D glasses
     totalPrice += getTotalNumberOfPeople() if is3DCheckedWithFilm()
@@ -126,7 +127,7 @@ App.Kinderfeest = class Kinderfeest
 
   updateTablePrice = ->
     priceTable.updatePrice "Personen", getCurrentPacketPrice()
-    priceTable.updatePrice "Personen met korting", getCurrentPacketPrice() - 4.20
+    priceTable.updatePrice "Personen met korting", getCurrentPacketPrice() - App.Prices.SPECIAL_DISCOUNT
     return
 
   ### Initializers ###
@@ -141,7 +142,7 @@ App.Kinderfeest = class Kinderfeest
 
     $('#checkboxCamera').click ->
       if $(this).is ':checked'
-        priceTable.addArticle "Onderwater Camera", 1, 9.95
+        priceTable.addArticle "Onderwater Camera", 1, App.Prices.CAMERA
       else
         priceTable.removeArticle "Onderwater Camera"
 
@@ -251,7 +252,7 @@ App.Kinderfeest = class Kinderfeest
     updateStyle $selectedDiv
     updateTablePrice()
     if getPacketOption() == "film" && $('#checkbox-3D').is(':checked')
-      priceTable.addArticle("3D bril", getTotalNumberOfPeople(), 1.00)
+      priceTable.addArticle("3D bril", getTotalNumberOfPeople(), App.Prices.GLASSES)
     priceTable.removeArticle("3D bril") if getPacketOption() != "film"
 
   # Makes sure that the height of the divs of the three block are same height
@@ -369,11 +370,11 @@ App.PriceTable = class PriceTable
     @summaryTable = []
 
     # Adds the Volwassenen and Children articles to the table.
-    volwassenArticle = new Article("Personen", 0, 9.95)
-    childrenArticle = new Article("Personen met korting", 0, 5.75)
+    normalArticle = new Article("Personen", 0, App.Prices.STANDARD)
+    discountArticle = new Article("Personen met korting", 0, App.Prices.STANDARD - App.Prices.SPECIAL_DISCOUNT)
 
-    @summaryTable.push(volwassenArticle) unless @inTable "Personen"
-    @summaryTable.push(childrenArticle) unless @inTable "Personen met korting"
+    @summaryTable.push(normalArticle) unless @inTable "Personen"
+    @summaryTable.push(discountArticle) unless @inTable "Personen met korting"
 
     $('.summary-view table').append "<tr>
       <th>Omschrijving</th>
