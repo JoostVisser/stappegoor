@@ -223,7 +223,7 @@ App.Kinderfeest = class Kinderfeest
 
     $(".info-discount").popover
       trigger: 'hover'
-      content: 'Voor abbonnementhouders, tjippas houders en actietarieven geldt € 4,20 korting.'
+      content: 'Voor abbonnementhouders, tjippas houders en actietarieven geldt € ' + App.Prices.SPECIAL_DISCOUNT.toFixed(2).replace('.',',')  + ' korting.'
     return
 
   # Initializes the time picker of the form
@@ -418,14 +418,14 @@ App.PriceTable = class PriceTable
           $('.summary-view table').append "<tr>
             <td>#{articleDescription}</td>
             <td>#{articleAmount}</td>
-            <td>€ #{totalArticlePrice.toFixed(2)}</td>
+            <td>€ #{totalArticlePrice.toFixed(2).replace('.',',')}</td>
             </tr>"
 
     # Append total price
     $('.summary-view table').append "<tr>
       <td>Totaal</td>
       <td></td>
-      <td>€ #{totalPrice.toFixed(2)}</td>
+      <td>€ #{totalPrice.toFixed(2).replace('.',',')}</td>
       </tr>"
     return
 
