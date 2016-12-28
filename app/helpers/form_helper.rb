@@ -1,4 +1,8 @@
 module FormHelper
+  def get_price price_symbol 
+    sprintf('%.2f', Constants.prices[price_symbol]).sub!('.',',')
+  end
+
   def date_tag
     label_tag :inputDate, "Datum", class: 'control-label'
   end
@@ -136,7 +140,9 @@ module FormHelper
   end
   
   def checkbox_tag
-    @checkboxText = "Onderwatercamera voor 15 minuten: € 9,95 (neem een USB stick mee om de foto’s direct mee te nemen)"
+    @checkboxText = "Onderwatercamera voor 15 minuten: € " \
+                    + get_price(:camera) \
+                    + " (neem een USB stick mee om de foto’s direct mee te nemen)"
 
     label_tag :checkboxCamera, @checkboxText
   end

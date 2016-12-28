@@ -1,4 +1,5 @@
 class SubmitController < ApplicationController
+  
   def kinderfeesten
     transactionHash = params.except("utf8")
     # The price is calculated afterwards to avoid people messing with it.
@@ -27,23 +28,23 @@ class SubmitController < ApplicationController
     nrOfPersons = transactionHash["inputNrOfPersons"].to_f
     nrOfDiscounts = transactionHash["inputNrOfDiscounts"].to_f
     if transactionType.include? "Standaard Zwemfeestje"
-      costPerPerson = 9.95
-    elsif transactionType.include? "Luxe Zwemfeestje"
-      costPerPerson = 12.75
+      costPerPerson = Constants.prices[:standard]
+    elsif transactionType.includ2e? "Luxe Zwemfeestje"
+      costPerPerson = Constants.prices[:luxe]
     elsif transactionType.include? "Film en Zwemfeestje"
-      costPerPerson = 16.95
+      costPerPerson = Constants.prices[:film]
     else
       return 0
     end
     # Extra cost for optional 3D glasses
-    costPerPerson += 1  if transactionType.include? "3D brillen"
+    costPerPerson += Constants.prices[:glasses]  if transactionType.include? "3D brillen"
     
     # Calculation of the cost.
     transactionPrice = costPerPerson * nrOfPersons
-    transactionPrice += (costPerPerson - 4.20) * nrOfDiscounts
+    transactionPrice += (costPerPerson - Constants.prices[:special_discount]) * nrOfDiscounts
 
     # Optional under water camera.
-    transactionPrice += 9.95 if transactionType.include? "onderwatercamera"
+    transactionPrice += Constants.prices[:camera] if transactionType.include? "onderwatercamera"
     
     return transactionPrice
   end
