@@ -217,13 +217,13 @@ App.Kinderfeest = class Kinderfeest
 
     $(".info-drink").popover
       trigger: 'hover'
-      content: 'Keuze uit: Coca Cola (Light), Fanta, Sprite, Capri-Sun, Chaudfontaine Blauw, koffie, thee of cappuccino.'
+      content: 'Onbeperkt ranja tijdens het eten.'
       placement: 'top'
       container: 'body'
 
     $(".info-discount").popover
       trigger: 'hover'
-      content: 'Voor abbonnementhouders, tjippas houders en actietarieven geldt € ' + App.Prices.SPECIAL_DISCOUNT.toFixed(2).replace('.',',')  + ' korting.'
+      content: 'Voor abbonnementhouders, Tjippas houders en mensen met actietarief rekenen we de entree van het zwembad niet mee zodat je de kaartjes met deze korting bij de receptie van het zwembad kan kopen.'
     return
 
   # Initializes the time picker of the form
