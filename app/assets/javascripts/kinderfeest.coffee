@@ -39,7 +39,6 @@ App.Kinderfeest = class Kinderfeest
         App.Names.LUXE
       when "film"
         App.Names.FILM
-        "Film en Zwemfeestje"
 
   getFullPacketDescription = ->
     packetDescription = getDescriptionText();

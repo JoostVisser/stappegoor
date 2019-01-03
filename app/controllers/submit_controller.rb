@@ -36,6 +36,7 @@ class SubmitController < ApplicationController
     else
       return 0
     end
+    
     # Extra cost for optional 3D glasses
     costPerPerson += Constants.prices[:glasses]  if transactionType.include? "3D brillen"
     
