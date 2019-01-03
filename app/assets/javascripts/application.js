@@ -19,5 +19,6 @@
 //= require turbolinks
 //= require init
 //= require colours
+//= require names
 //= require prices
 //= require kinderfeest

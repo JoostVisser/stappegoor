@@ -3,6 +3,10 @@ module FormHelper
     sprintf('%.2f', Constants.prices[price_symbol]).sub!('.',',')
   end
 
+  def get_name name_symbol
+    Constants.names[name_symbol]
+  end
+
   def date_tag
     label_tag :inputDate, "Datum", class: 'control-label'
   end

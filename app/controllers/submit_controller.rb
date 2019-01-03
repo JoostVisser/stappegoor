@@ -27,11 +27,11 @@ class SubmitController < ApplicationController
     transactionType = transactionHash["packetType"]
     nrOfPersons = transactionHash["inputNrOfPersons"].to_f
     nrOfDiscounts = transactionHash["inputNrOfDiscounts"].to_f
-    if transactionType.include? "Standaard Zwemfeestje"
+    if transactionType.include? Constants.names[:standard]
       costPerPerson = Constants.prices[:standard]
-    elsif transactionType.includ2e? "Luxe Zwemfeestje"
+    elsif transactionType.includ2e? Constants.names[:luxe]
       costPerPerson = Constants.prices[:luxe]
-    elsif transactionType.include? "Film en Zwemfeestje"
+    elsif transactionType.include? Constants.names[:film]
       costPerPerson = Constants.prices[:film]
     else
       return 0
