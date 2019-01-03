@@ -3,7 +3,7 @@ class FormMailerPreview < ActionMailer::Preview
   def confirmation_mail_preview
     transactionHash = { "utf8"=>"✓", 
                         "authenticity_token"=>"4R4Bl8CkxIKrToO/0yBemlYibdZmVWVW8aRItv/eu923TiUiXX/E8wfzhgCxJEsoO9h8VZqqlCM1f6IGzpBKcA==", 
-                        "packetType"=>"Film en Zwemfeestje met 3D brillen en onderwater camera.", 
+                        "packetType"=>"Zwemfeestje Catamaran met 3D brillen en onderwater camera.", 
                         "inputName"=>"Joost",
                         "inputBirthdayBoyName"=>"Hendrik",
                         "inputEmail"=>"Joost.visser1@gmail.com", 
@@ -23,7 +23,7 @@ class FormMailerPreview < ActionMailer::Preview
   def request_mail_preview
     transactionHash = { "utf8"=>"✓", 
                         "authenticity_token"=>"4R4Bl8CkxIKrToO/0yBemlYibdZmVWVW8aRItv/eu923TiUiXX/E8wfzhgCxJEsoO9h8VZqqlCM1f6IGzpBKcA==", 
-                        "packetType"=>"Film en Zwemfeestje met 3D brillen en onderwater camera.", 
+                        "packetType"=>"Zwemfeestje Catamaran met 3D brillen en onderwater camera.", 
                         "inputName"=>"Joost",
                         "inputBirthdayBoyName"=>"Hendrik",
                         "inputEmail"=>"Joost.visser1@gmail.com", 
