@@ -11,9 +11,10 @@ rvmsudo bundle exec passenger start
 
 Restarting the server can be done as follows:
 ```bash
-cd /var/www/myapp/code
+cd /var/www/stappegoor-site/code
 git pull
 bundle install --deployment --without development test
+bundle exec rake assets:clean
 bundle exec rake assets:precompile db:migrate RAILS_ENV=production
 passenger-config restart-app $(pwd)
 ```
