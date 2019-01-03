@@ -45,7 +45,8 @@
   .row
     .col-sm-4
       .inner
-        %h3 Standaard Zwemfeestje
+        %h3
+          = get_name(:standard)
         %h4.subtitle
           = "€ " + get_price(:standard) + " p.p."
 
@@ -85,7 +86,8 @@
 
     .col-sm-4
       .inner
-        %h3 Luxe Zwemfeestje
+        %h3 
+          = get_name(:luxe)
         %h4.subtitle 
           = "€ " + get_price(:luxe) + " p.p."
 
@@ -125,7 +127,8 @@
 
     .col-sm-4
       .inner
-        %h3 Film en Zwemfeestje
+        %h3 
+          = get_name(:film)
         %h4.subtitle 
           = "€ " + get_price(:film) + " p.p."
 

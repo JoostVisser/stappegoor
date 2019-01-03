@@ -34,10 +34,11 @@ App.Kinderfeest = class Kinderfeest
     packetOption = getPacketOption()
     switch(packetOption)
       when "standard"
-        "Standaard Zwemfeestje"
+        App.Names.STANDARD
       when "luxe"
-        "Luxe Zwemfeestje"
+        App.Names.LUXE
       when "film"
+        App.Names.FILM
         "Film en Zwemfeestje"
 
   getFullPacketDescription = ->
